@@ -4,8 +4,6 @@ function blast_queries_to_targets_extract_ORF(queryGenes,targetStrains,path_data
 % Runs BLAST of multiple query genes to multiple target ("subject")
 % genomes.
 %
-% Demo version of this script BLASTs 2 genes against 3 genomes.
-%
 % This script assumes that each target genome sequence has been formatted
 % into a BLAST database, which is true for all of the included Liti+Fay
 % genomes. If you have added new target genomes, use the code in
@@ -40,11 +38,7 @@ for iquery = 1:length(queryGenes)
         %Load the query sequence. We assume the sequence is always a fasta
         %file for +/-1KB sequence
         query_file=[queryPath queryGenes{iquery} '.fsa.txt'];
-        
-        
-        %         len_promoter=get_hits(blastResult,query_file,subject_file);
-        %         array_promoter_len(itarget)=len_promoter;
-        
+                       
         [consensus_sequence_string, consensus_sequence]=combine_contigs(blastResult,query_file,subject_file);
         
         names_genomes{itarget}=targetStrains{itarget};

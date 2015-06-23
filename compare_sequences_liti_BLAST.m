@@ -54,24 +54,17 @@ end
 get_orf_promoter=1;
 %haplotypes for the coding region
 [DNA_SNP_structure,sequence_table_DNA]=SNP_finder_DNA(sequence_table,nm_all,get_orf_promoter,queryGene,path_data);
-
 DNA_idx_identical_sequences=determine_unique(DNA_SNP_structure, sequence_table_DNA, nm_all);
+save(['output/DNA_DATA_PROMOTER_ORF' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
 
+%%
 
-%% Save output data
+get_orf_promoter=0;
+%haplotypes for the coding region
+[DNA_SNP_structure,sequence_table_DNA]=SNP_finder_DNA(sequence_table,nm_all,get_orf_promoter,queryGene,path_data);
+DNA_idx_identical_sequences=determine_unique(DNA_SNP_structure, sequence_table_DNA, nm_all);
+save(['output/DNA_DATA_ONLY_ORF' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
 
-if get_orf_promoter
-    display('promoter and ORF only') 
-    length(DNA_idx_identical_sequences)
-    %save(['output/DNA_DATA_PROMOTER_ORF' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
-
-else
-    display('ORF only') 
-    length(DNA_idx_identical_sequences)
-
-    %save(['output/DNA_DATA_' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
-
-end
 
 %% COMPUTE synonymous versus non synonymous SNPs. Length of ORF
 % tot_changes=size(DNA_SNP_structure,2);
