@@ -9,22 +9,22 @@ path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/201411
 
 targetStrains={
     'YPS163',
-    'YPS1009'}
-%     'YJM653',
-%     'YJM428',
-%     'YJM421',
-%     'Y9combined',%'Y9_WashU',
-%     'WE372',
-%     'UC5',
-%     'T7',
-%     'PW5',
-%     'NC_02',%'NC-02'
-%     'M22',
-%     'IL_01',%'IL-01',
-%     'I14',
-%     'FL100',
-%     'CLIB382',
-%     'CLIB324'};% Removed CLIB215 since there was only one replicate
+    'YPS1009',
+    'YJM653',
+    'YJM428',
+    'YJM421',
+    'Y9combined',%'Y9_WashU',
+    'WE372',
+    'UC5',
+    'T7',
+    'PW5',
+    'NC_02',%'NC-02'
+    'M22',
+    'IL_01',%'IL-01',
+    'I14',
+    'FL100',
+    'CLIB382',
+    'CLIB324'};% Removed CLIB215 since there was only one replicate
 
 
 
