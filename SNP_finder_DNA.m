@@ -1,4 +1,4 @@
-function [SNP_structure,sequence_table]=SNP_finder_DNA(sequence_table,nm_all,get_orf_promoter,queryGene)
+function [SNP_structure,sequence_table]=SNP_finder_DNA(sequence_table,nm_all,get_orf_promoter,queryGene,path_data)
 %Finds SNPs reported as a reference to S288C
 
 startORF_table=1;%Starts 500 bp upstream of the start codong 1001
@@ -7,7 +7,7 @@ stopORF_table=size(sequence_table,2);
 
 if get_orf_promoter
     
-    conversion_table=csv2cell('doc/20150310_Genes_conversion.csv');
+    conversion_table=csv2cell([path_data 'doc/20150310_Genes_conversion.csv']);
     
     query_genes_names=conversion_table(:,1);
     
