@@ -45,7 +45,7 @@ for iquery = 1:length(queryGenes)
         %         len_promoter=get_hits(blastResult,query_file,subject_file);
         %         array_promoter_len(itarget)=len_promoter;
         
-        [consensus_sequence_string, consensus_sequence]=combine_contigs_2(blastResult,query_file,subject_file);
+        [consensus_sequence_string, consensus_sequence]=combine_contigs(blastResult,query_file,subject_file);
         
         names_genomes{itarget}=targetStrains{itarget};
         sequences_cells{itarget}=consensus_sequence;
@@ -65,7 +65,8 @@ for iquery = 1:length(queryGenes)
     
     %% Compare to Liti strains
     
-    [tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGenes{iquery},path_data);
+      compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGenes{iquery},path_data);
+%     [tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGenes{iquery},path_data);
     
 %     table_changes(iquery).Gene=queryGenes{iquery};
 %     table_changes(iquery).Total_Changes=tot_changes;
@@ -76,6 +77,5 @@ end
 toc;
 
 %save('output/table_changes','table_changes')
-
 
 end
