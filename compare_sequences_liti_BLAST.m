@@ -1,4 +1,4 @@
-function [tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGene)
+function [tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGene,path_data)
 %COMPARE_SEQUENCES_LITI  create table for SNP counting
 % Load data and concatenate arrays for SNP count. Center all sequences
 % around 1001
@@ -55,19 +55,19 @@ end
 
 get_orf_promoter=1;
 %haplotypes for the coding region
-[DNA_SNP_structure,sequence_table_DNA]=SNP_finder_DNA(sequence_table,nm_all,get_orf_promoter,queryGene);
+[DNA_SNP_structure,sequence_table_DNA]=SNP_finder_DNA(sequence_table,nm_all,get_orf_promoter,queryGene,path_data);
 
 DNA_idx_identical_sequences=determine_unique_2(DNA_SNP_structure, sequence_table_DNA, nm_all);
 
 
-%%
+%% Save output data
 
 if get_orf_promoter
     display('promoter and orf') 
-    save(['output/DNA_DATA_PROMOTER_ORF' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
+    %save(['output/DNA_DATA_PROMOTER_ORF' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
 
 else
-    save(['output/DNA_DATA_' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
+    %save(['output/DNA_DATA_' queryGene],'DNA_SNP_structure','DNA_idx_identical_sequences','sequence_table_DNA','nm_all');
 
 end
 

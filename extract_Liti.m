@@ -1,17 +1,17 @@
-function [names_genomes,sequences_cells]=extract_Liti(queryGene)
+function [names_genomes,sequences_cells]=extract_Liti(queryGene,path_data)
 
 % EXTRACT_LITI extracts Liti sequences
 %Use queryGene to load the correct file for analysis
-tmp = fastaread(['data/query_genes/' queryGene '.fsa.txt']);
+tmp = fastaread([path_data 'data/query_genes/' queryGene '.fsa.txt']);
 
-conversion_table=csv2cell('doc/20150310_Genes_conversion.csv');
+conversion_table=csv2cell([path_data 'doc/20150310_Genes_conversion.csv']);
 
 query_genes_names=conversion_table(:,1);
 
 idx=find(strcmp(queryGene,query_genes_names));
 
 %sequences_liti=fastaread('sequences/Sequences_YDR009W.fasta');
-sequences_liti=fastaread(['sequences/' conversion_table{idx,2}]);
+sequences_liti=fastaread([path_data 'sequences/' conversion_table{idx,2}]);
 
 seq_query=tmp.Sequence;
 
