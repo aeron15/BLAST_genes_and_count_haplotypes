@@ -12,13 +12,13 @@ load('output/strains_in_study_20150622.mat')
 
 load('output/strains_allele_swaps.mat')
 
-get_orf_promoter=1;
+get_orf_promoter=0;
 
 %load('output/DNA_DATA_PROMOTER_ORF' queryGene);
 
 if get_orf_promoter
     load('output/DNA_DATA_PROMOTER_ORFS288C_YDR009W_GAL3_flanking.mat')
-else    
+else
     load('output/DNA_DATA_ONLY_ORFS288C_YDR009W_GAL3_flanking.mat')
     
 end
@@ -54,6 +54,9 @@ for iCell=1:length(AllStrains_haplotypes)
     end
     
 end
+%% Number of haplotypes
 
-sum(strains_haplotype_count)
+length(strains)-sum(strains_haplotype_count)
+
+
 
