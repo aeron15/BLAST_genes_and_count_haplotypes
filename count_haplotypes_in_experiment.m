@@ -1,20 +1,11 @@
-function count_haplotypes_in_experiment()
+function HaplotypeCount=count_haplotypes_in_experiment(strains,get_orf_promoter)
 
-%Count haplotypes takes a list of strains and determines how many
+% COUNT_HAPLOTYPES_IN_EXPERIMENT count haplotypes takes a list of strains and determines how many
 %haplotypes there are in these list of strains using gene GAL3
-
 %Sort haplotypes
 %Check intersect
 %Create new haplotypes
 % There are 35 sequences because there are two Y9 strains
-
-load('output/strains_in_study_20150622.mat')
-
-load('output/strains_allele_swaps.mat')
-
-get_orf_promoter=0;
-
-%load('output/DNA_DATA_PROMOTER_ORF' queryGene);
 
 if get_orf_promoter
     load('output/DNA_DATA_PROMOTER_ORFS288C_YDR009W_GAL3_flanking.mat')
@@ -23,7 +14,7 @@ else
     
 end
 
-%% Sort the haplotypes based on size of strains
+%% Sort the haplotypes based on number of strains in the haplotype
 
 AllStrains_haplotypes={DNA_idx_identical_sequences.Strains};
 AllStrains_haplotypes=AllStrains_haplotypes';
@@ -56,7 +47,7 @@ for iCell=1:length(AllStrains_haplotypes)
 end
 %% Number of haplotypes
 
-length(strains)-sum(strains_haplotype_count)
+ HaplotypeCount=length(strains)-sum(strains_haplotype_count);
 
 
 
