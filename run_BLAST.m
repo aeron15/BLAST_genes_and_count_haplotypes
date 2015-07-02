@@ -5,7 +5,7 @@ function run_BLAST(queryGenes)
 path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
 load('targetStrains_WashU.mat')
 targetStrains=targetStrains_WashU;
-
+targetStrains={'YPS163'}
 % BLAST sequences and generate fasta files as well as table sequences used for
 blast_queries_to_targets_extract_ORF(queryGenes,targetStrains,path_data);
 
