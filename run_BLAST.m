@@ -19,7 +19,9 @@ targetStrains=targetStrains_WashU;
 
 type_of_BLAST='flanking';% 20150619 flanking or coding
 
-queryGenes = {'S288C_YDR009W_GAL3_flanking'} %Reduce flanking to only 500 bp
+%queryGenes = {'S288C_YDR009W_GAL3_flanking'} %Reduce flanking to only 500 bp
+queryGenes = {'S288C_YML051W_GAL80_flanking'};
+
 
 %% BLAST sequences and generate fasta files as well as table sequences used for
 blast_queries_to_targets_extract_ORF(queryGenes,targetStrains,path_data);
