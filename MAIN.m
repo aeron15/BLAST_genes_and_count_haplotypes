@@ -11,7 +11,7 @@ queryGenes = {'S288C_YDR009W_GAL3_flanking'} %Reduce flanking to only 500 bp
 
 %% Collect sequences of the strains and generate SNP count for the strains
 
-%run_BLAST(queryGenes)
+run_BLAST(queryGenes)
 
 compute_SNP_number_haplotype_count(queryGenes)
 
