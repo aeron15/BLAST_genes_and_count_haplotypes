@@ -14,6 +14,12 @@ else
     
 end
 
+% if get_orf_promoter
+%     load('output/DNA_DATA_PROMOTER_ORFS288C_YML051W_GAL80_flanking.mat')
+% else
+%     load('output/DNA_DATA_ONLY_ORFS288C_YML051W_GAL80_flanking.mat')
+% end
+
 %% Sort the haplotypes based on number of strains in the haplotype
 
 AllStrains_haplotypes={DNA_idx_identical_sequences.Strains};

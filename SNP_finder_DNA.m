@@ -9,20 +9,15 @@ stopORF_table=size(sequence_table,2);
 if get_orf_promoter
     
     conversion_table=csv2cell([path_data 'doc/20150310_Genes_conversion.csv']);%contains length of genes
-    
     query_genes_names=conversion_table(:,1);
-    
     idx=find(strcmp(queryGene,query_genes_names));
-    
     len_ORF=conversion_table{idx,3};
-
     sequence_table=sequence_table(:,startORF_table:(1001+len_ORF-1));
     
 else
     % ORF version of the script
     
     len_ORF=stopORF_table-1000;
-    
     R = rem(len_ORF,3);%check that the length is a multiple of 3 for coding conversion
     
     if R
