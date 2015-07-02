@@ -10,8 +10,8 @@ protein_table=convert_to_protein(sequence_table,queryGene);
 PROT_SNP_Structure=SNP_finder_protein(protein_table,All_names);
 PROT_idx_identical_sequences=determine_unique_protein(PROT_SNP_Structure, protein_table, All_names,queryGene);
 
-%save(['output/PROT_DATA_' queryGene],'PROT_SNP_Structure','PROT_idx_identical_sequences','protein_table','All_names')
-%save('idx_identical_sequences_protGAL3','PROT_idx_identical_sequences')
+save(['output/PROT_DATA_' queryGene],'PROT_SNP_Structure','PROT_idx_identical_sequences','protein_table','All_names')
+save('idx_identical_sequences_protGAL3','PROT_idx_identical_sequences')
 %% SNP and cluster count for DNA. Specify region
 
 get_orf_promoter=1;
@@ -28,9 +28,9 @@ save(['output/DNA_DATA_ONLY_ORF' queryGene],'DNA_SNP_structure','DNA_idx_identic
 
 
 %% COMPUTE synonymous versus non synonymous SNPs. Length of ORF
-% tot_changes=size(DNA_SNP_structure,2);
-% ns_changes=size(PROT_SNP_Structure,2);
-% syn_changes=tot_changes-ns_changes;
+tot_changes=size(DNA_SNP_structure,2);
+ns_changes=size(PROT_SNP_Structure,2);
+syn_changes=tot_changes-ns_changes;
 
 
 end
