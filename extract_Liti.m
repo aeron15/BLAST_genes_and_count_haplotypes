@@ -1,7 +1,7 @@
 function [names_genomes,sequences_cells]=extract_Liti(queryGene,path_data)
 
-% EXTRACT_LITI extracts Liti sequences
-%Use queryGene to load the correct file for analysis
+% EXTRACT_LITI extracts the first cerevisiae strains (39)
+
 tmp = fastaread([path_data 'data/query_genes/' queryGene '.fsa.txt']);
 
 conversion_table=csv2cell([path_data 'doc/20150310_Genes_conversion.csv']);
@@ -10,17 +10,23 @@ query_genes_names=conversion_table(:,1);
 
 idx=find(strcmp(queryGene,query_genes_names));
 
-%sequences_liti=fastaread('sequences/Sequences_YDR009W.fasta');
 sequences_liti=fastaread([path_data 'sequences/' conversion_table{idx,2}]);
+%%
+load('strains_in_study.mat');
 
+strains_Liti={sequences_liti.Header};
+length(intersect(strains_in_study,strains_Liti))
+
+%%
 seq_query=tmp.Sequence;
 
 startORF=1001;
 
+%% Restrict to 20 strains used in the study
 
-%for iSeq=1:length(sequences_liti)
+%%
+
 for iSeq=1:39% first 39 cerevisiae strains
-%for iSeq=1% first 39 cerevisiea strains
     
     table_assemble={};
     
@@ -52,23 +58,8 @@ for iSeq=1:39% first 39 cerevisiae strains
         
         table_assemble{iPosition}=seq_hit_subject_cell{iBase};
         iPosition=iPosition+1;
-        
-        
     end
-    
-    %% No offsets taken into account
-    %
-    %     seq_hit_subject=Alignment(3,:);
-    %     seq_hit_subject_cell=str2cell(seq_hit_subject);
-    %
-    %
-    %     for iBase=1:length(seq_hit_subject)
-    %
-    %         table_assemble{iPosition}=seq_hit_subject_cell{iBase};
-    %         iPosition=iPosition+1;
-    %
-    %
-    %     end
+
     
     %% Save names and sequences
     names_genomes{iSeq}=sequences_liti(iSeq).Header;

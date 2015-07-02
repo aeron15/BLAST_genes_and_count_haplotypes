@@ -46,21 +46,18 @@ for iquery = 1:length(queryGenes)
         
     end
     
-    %% Save and merge all sequences into a single table for counting analysis
-    
-    %save(['output/BLASTresults_' queryGenes{iquery}],'names_genomes','sequences_cells')
-    
     %% Create table for Liti strains
     
     [names_genomes_Liti,sequences_cells_Liti]=extract_Liti(queryGenes{iquery},path_data);
     
+    %Convert table sequences cells Liti to FASTA
     
     % Restrict to sequences of strains that we actually used in our study
     
     %% Compare to Liti strains
     
       compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGenes{iquery},path_data);
-%     [tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGenes{iquery},path_data);
+     [tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGenes{iquery},path_data);
     
 %     table_changes(iquery).Gene=queryGenes{iquery};
 %     table_changes(iquery).Total_Changes=tot_changes;
