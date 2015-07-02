@@ -55,7 +55,7 @@ for iquery = 1:length(queryGenes)
     
     [sequence_table,All_names]=combine_sequences_names(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti);
     
-    %% Compare to Liti strains
+    %% Identification of SNPs with respect to the reference strain S288C
     identfy_SNPs(sequence_table,All_names,queryGenes{iquery},path_data)
     
     %% Keep track of changes for McDonal-Kreitman test
