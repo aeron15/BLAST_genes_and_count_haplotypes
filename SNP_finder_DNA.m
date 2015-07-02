@@ -1,13 +1,14 @@
 function [SNP_structure,sequence_table]=SNP_finder_DNA(sequence_table,nm_all,get_orf_promoter,queryGene,path_data)
+
+%SNP_FINDER_DNA
 %Finds SNPs reported as a reference to S288C
 
 startORF_table=1;%Starts 500 bp upstream of the start codong 1001
 stopORF_table=size(sequence_table,2);
 
-
 if get_orf_promoter
     
-    conversion_table=csv2cell([path_data 'doc/20150310_Genes_conversion.csv']);
+    conversion_table=csv2cell([path_data 'doc/20150310_Genes_conversion.csv']);%contains length of genes
     
     query_genes_names=conversion_table(:,1);
     
@@ -72,15 +73,9 @@ for iCol=1:length(sequence_table)
                 
                 SNP_structure(counter_SNP).Position=iCol;
                 SNP_structure(counter_SNP).Change=[Ref_Seq '->' list{iBasePair}];
-                %SNP_structure(counter_SNP).Strains=indeces;
                 SNP_structure(counter_SNP).Strains=find_strain(indeces,nm_all);
                 SNP_structure(counter_SNP).Name=list{iBasePair};
                 SNP_structure(counter_SNP).Number_of_SNPs=length(indeces);
-                
-                %Change code to only list the SNPs with respect to the
-                %reference if they are identical then they are of no
-                %interest (right?)
-                %Check what the deal is with 7 and 21
                 
                 counter_SNP=counter_SNP+1;
                 
