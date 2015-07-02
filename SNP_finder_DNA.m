@@ -22,7 +22,6 @@ else
     
     if R
         len_ORF=len_ORF-R;
-        
     end
     
     sequence_table=sequence_table(:,1001:len_ORF);

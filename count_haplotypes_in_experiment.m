@@ -1,24 +1,30 @@
-function HaplotypeCount=count_haplotypes_in_experiment(strains,get_orf_promoter)
+function [HaplotypeCount, Number_SNPs]=count_haplotypes_in_experiment(strains,get_orf_promoter,QueryGene)
 
 % COUNT_HAPLOTYPES_IN_EXPERIMENT count haplotypes takes a list of strains and determines how many
 %haplotypes there are in these list of strains using gene GAL3
 %Sort haplotypes
 %Check intersect
 %Create new haplotypes
-% There are 35 sequences because there are two Y9 strains
-
-if get_orf_promoter
-    load('output/DNA_DATA_PROMOTER_ORFS288C_YDR009W_GAL3_flanking.mat')
-else
-    load('output/DNA_DATA_ONLY_ORFS288C_YDR009W_GAL3_flanking.mat')
-    
-end
+% There are 35 sequences because there are two Y9 strains (Y9 and Y9
+% combined)
+% 
+% if get_orf_promoter
+%     load('output/DNA_DATA_PROMOTER_ORFS288C_YDR009W_GAL3_flanking.mat')
+% else
+%     load('output/DNA_DATA_ONLY_ORFS288C_YDR009W_GAL3_flanking.mat')
+% end
 
 % if get_orf_promoter
 %     load('output/DNA_DATA_PROMOTER_ORFS288C_YML051W_GAL80_flanking.mat')
 % else
 %     load('output/DNA_DATA_ONLY_ORFS288C_YML051W_GAL80_flanking.mat')
 % end
+
+if get_orf_promoter
+    load(['output/DNA_DATA_PROMOTER_ORF' QueryGene '.mat'])
+else
+    load(['output/DNA_DATA_ONLY_ORF' QueryGene '.mat'])
+end
 
 %% Sort the haplotypes based on number of strains in the haplotype
 
@@ -54,6 +60,7 @@ end
 %% Number of haplotypes
 
  HaplotypeCount=length(strains)-sum(strains_haplotype_count);
+ Number_SNPs=length(DNA_SNP_structure);
 
 
 
