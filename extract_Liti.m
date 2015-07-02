@@ -1,4 +1,4 @@
-function [names_genomes,sequences_cells]=extract_Liti(queryGene,path_data)
+function [names_genomes,sequences_cells,sequences_liti]=extract_Liti(queryGene,path_data)
 
 % EXTRACT_LITI extracts the first cerevisiae strains (39)
 
@@ -11,22 +11,15 @@ query_genes_names=conversion_table(:,1);
 idx=find(strcmp(queryGene,query_genes_names));
 
 sequences_liti=fastaread([path_data 'sequences/' conversion_table{idx,2}]);
-%%
-load('strains_in_study.mat');
 
-strains_Liti={sequences_liti.Header};
-length(intersect(strains_in_study,strains_Liti))
-
-%%
 seq_query=tmp.Sequence;
 
 startORF=1001;
 
-%% Restrict to 20 strains used in the study
+%% Restrict 'sequences_liti' to specific strains in the study
+sequences_liti=reduce_sequences_liti(sequences_liti);
 
-%%
-
-for iSeq=1:39% first 39 cerevisiae strains
+for iSeq=1:length(sequences_liti)
     
     table_assemble={};
     
