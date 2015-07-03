@@ -1,25 +1,24 @@
 
 function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_sequences,gene)
 
+%PLOT_CLUSTERS_SNPs_PRTEIN
+%just take 36 strains and not all of them
+%sort based on the set point
+
 clusters={idx_identical_sequences.Strains};
 %% Get clusters from idx identical sequences
-s=cellfun(@size,clusters,'uniform',false);
+
+s=cellfun(@size,clusters,'uniform',false);%sort clusters
 [trash is]=sortrows(cat(1,s{:}),-[1 2]);
 clusters=clusters(is);
 
-%% Plot all setpoints in the same plot 20150121
 
 colors_vec=cbrewer('qual', 'Set1', 9);
-
 colors_vec=repmat(colors_vec,5,1);
 
 % Sort setpoints and the strains accordingly
-% [C,idx]=sort(set_points_setvalue(:,2)-set_points_setvalue(:,1));
-% new_strains=strains(idx)';
-
-% 20150303 vertical table
-C=set_points_setvalue';
-new_strains=strains';
+[C,idx]=sort(set_points_setvalue);
+new_strains=strains(idx)';
 
 mark_size_plot=50;
 
@@ -37,9 +36,7 @@ for iCluster=1:length(clusters)
     %setpoints_value structure so that the names match
     
     cluster_analyzed=clean_up_cluster(cluster_analyzed,new_strains);
-    
-    %% [~,y]=find_strain(cluster_analyzed,new_strains,C);
-    
+        
     for iStrain=1:length(cluster_analyzed)
         
         try
@@ -49,8 +46,6 @@ for iCluster=1:length(clusters)
             x_strain=repmat(k_strain,length(y),1);
             
             cluster_analyzed(iStrain)
-            display('and x')
-            x_strain
             plot(x_strain,y,'.','MarkerSize',mark_size_plot,'color',colors_vec(iCluster,:));
             ylim([-9 -3])
             vline(k_strain,'k--')
