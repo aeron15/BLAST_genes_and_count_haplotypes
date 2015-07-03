@@ -2,9 +2,6 @@ function MAIN
 
 %MAIN script that determines the number of haplotypes and SNPs in the paper
 
-%% Restrict data for specific strains
-% determine_strains_for_BLAST()
-
 %% Query genes
 queryGenes = {'S288C_YDR009W_GAL3_flanking','S288C_YML051W_GAL80_flanking'}
 %queryGenes = {'S288C_YML051W_GAL80_flanking'};

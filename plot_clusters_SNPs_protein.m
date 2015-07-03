@@ -1,7 +1,7 @@
 
 function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_sequences,gene)
 
-%PLOT_CLUSTERS_SNPs_PRTEIN
+%PLOT_CLUSTERS_SNPs_PROTEIN
 %just take 36 strains and not all of them
 %sort based on the set point
 
@@ -34,9 +34,11 @@ for iCluster=1:length(clusters)
     
     %renames the cluster to the sequence used in the
     %setpoints_value structure so that the names match
-    
+    try
     cluster_analyzed=clean_up_cluster(cluster_analyzed,new_strains);
-        
+    catch
+       display('lets check what the problem is') 
+    end
     for iStrain=1:length(cluster_analyzed)
         
         try
@@ -70,8 +72,8 @@ end
 
 %%
 xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
-%title(['Clusters based on non coding and coding sequence of ' gene ' with ' num2str(length(clusters)) ' clusters']);
-title(['Clusters based on coding sequence of ' gene ' with ' num2str(length(clusters)) ' clusters']);
+title(['Haplotypes for  ' gene]);
+%title(['Haplotypes for  ' gene ' with ' num2str(length(clusters)) ' clusters']);
 
 ylim([-9 -3])
 

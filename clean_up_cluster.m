@@ -10,11 +10,11 @@ load('substitution_list.mat')
 
 %% Remove certain matches for 6 strains + REF
 % Test remove BC187
-StrainsRemoved_set={'REF','273614N','378604X','DBVPG6044','378604X','Y55','NCYC110','caca'};
-cluster_analyzed=setdiff(cluster_analyzed,StrainsRemoved_set);%Remove unwanted strains
+StrainsRemoved_set={'REF','273614N','378604X','DBVPG6044','378604X','Y55','NCYC110'};
 
+%Do something about 1 size clusters
 
-cluster_analyzed=setdiff(cluster_analyzed,StrainsRemoved_set);%Remove unwanted strains
+%%
 
 for iCounter=1:length(cluster_analyzed)
         
