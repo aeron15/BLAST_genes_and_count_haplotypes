@@ -6,7 +6,7 @@ path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/201411
 
 load('targetStrains_WashU.mat')
 
-targetStrains_WashU={'YPS163'};
+%targetStrains_WashU={'YPS163'};
 
 blast_queries_to_targets_extract_ORF(queryGenes,targetStrains_WashU,path_data);
 
