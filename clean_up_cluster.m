@@ -2,16 +2,14 @@ function clean_cluster_analyzed=clean_up_cluster(cluster_analyzed,strains)
 
 %CLEAN_UP_CLUSTER renames the cluster to the sequence used in the
 %setpoints_value structure so that the names match
-
+%Column 1 in substitions is the experiment name
+%Column 2 in substitutions is the sequence name
 %% List of substitutions. These are the strain names in the experiments
 
 substitution_list={
     'Gal3YJM978';
     'L_1528';
     'L_1374';
-%    '273614N';
-%    '378604X';
-%    '322134S';
     'I14';
     'L1374';
     'RM11_1A';
@@ -56,8 +54,9 @@ substitution_list{find(strcmp(substitution_list(:,1),'Y12SGRP')),2}='Y12-SGRP';
 
 %% Remove certain matches for 6 strains + REF
 % Test remove BC187
-StrainsRemoved_set={'273614N','REF'};
-%intersect(cluster_analyzed,StrainsRemoved_set)
+StrainsRemoved_set={'REF','273614N','378604X','DBVPG6044','378604X','Y55','NCYC110','caca'};
+cluster_analyzed=setdiff(cluster_analyzed,StrainsRemoved_set);%Remove unwanted strains
+
 
 %%
 cluster_analyzed=setdiff(cluster_analyzed,StrainsRemoved_set);%Remove unwanted strains

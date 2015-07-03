@@ -55,7 +55,7 @@ for iCluster=1:length(clusters)
             display(['Strain ' cluster_analyzed{iStrain} ' not found'])
             %display([cluster_analyzed{iStrain}])
             x(iStrain)=nan;
-            y(iStrain)=nan;
+    c        y(iStrain)=nan;
         end
         
         k_strain= k_strain+1;
