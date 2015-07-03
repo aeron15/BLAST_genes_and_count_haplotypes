@@ -5,6 +5,7 @@ function sequences_liti_reduced=reduce_sequences_liti(sequences_liti)
 %of targetStrains
 
 load('targetStrains_Liti.mat')
+
 LitiStrains_names={sequences_liti.Header};
 
 for iCounter=1:length(targetStrains_Liti)
