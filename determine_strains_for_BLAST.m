@@ -1,4 +1,4 @@
-function determine_strains_for_BLAST()
+function determine_strains_for_BLAST()%THIS SCRIPT DOES NEED SEEM TO QUITE WORK
 
 %DETERMINE_STRAINS_FOR_BLAST
 %determines the sequences to be used in the blast search
@@ -20,8 +20,8 @@ targetStrains_Liti=intersect(strains_in_study,strains_Liti);
 targetStrains_WashU=setdiff(strains_in_study,targetStrains_Liti);
 
 targetStrains_Liti{end+1}='REF';
-save('targetStrains_WashU','targetStrains_WashU');
-save('targetStrains_Liti','targetStrains_Liti');
+%save('targetStrains_WashU','targetStrains_WashU');
+%save('targetStrains_Liti','targetStrains_Liti');
 %length(intersect(strains_in_study,strains_for_BLAST_washU_Liti))
 % length(intersect(strains,strains_for_BLAST_washU_Liti))
 % length(intersect(strains_for_BLAST_washU_Liti,strains))
