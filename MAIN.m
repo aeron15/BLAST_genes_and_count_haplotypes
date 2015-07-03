@@ -14,7 +14,6 @@ run_BLAST(queryGenes)
 load('/Users/RenanEscalante/Documents/phenotypic_variation/Analysis_data_create_figure/data_output_figure_1.mat')
 driver_plot_clusters(queryGenes,data_output)
 
-
 %%
 compute_SNP_number_haplotype_count(queryGenes)
 
