@@ -1,11 +1,12 @@
 function clean_cluster_analyzed=clean_up_cluster(cluster_analyzed)
 
-%CLEAN_UP_CLUSTER renames the cluster to the sequence used in the
-%setpoints_value structure so that the names match
+% CLEAN_UP_CLUSTER converts experimental names of the strains to names of 
+% sequence strains
+
+%List of substitutions. These are the strain names in the experiments. 
 %Column 1 in substitions is the experiment name
 %Column 2 in substitution is the sequence name
-%% List of substitutions. These are the strain names in the experiments. 
-%  For information on how this list was generated see Mapping_strain_experiment_sequence.xls
+%For information on how this list was generated see Mapping_strain_experiment_sequence.xls
 
 load('substitution_list.mat')
 

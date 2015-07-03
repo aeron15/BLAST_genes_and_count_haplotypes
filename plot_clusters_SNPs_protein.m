@@ -2,9 +2,6 @@
 function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_sequences,gene)
 
 %PLOT_CLUSTERS_SNPs_PROTEIN
-%just take 36 strains and not all of them
-%sort based on the set point
-% COUNT NUMBER OF HAPLOTYPES/CLUSTERS
 
 clusters={idx_identical_sequences.Strains};
 %% Get clusters from idx identical sequences
@@ -66,8 +63,6 @@ for iCluster=1:length(clusters)
         
     end
     
-    %% If cluster had some strains they need to be clean out
-    %new_strains_to_add=length(cluster_analyzed);
     labels=horzcat(labels,cluster_analyzed);
 end
 
@@ -79,10 +74,9 @@ title(['Haplotypes for  ' gene ' with ' num2str(cluster_counter) ' clusters'],'i
 
 ylim([-9 -3])
 
-Set_fig_RE(hfig,16,16,18)
+Set_fig_RE(hfig,16,16,18);
 filename=['Clusters_' gene];
 export_fig(filename, '-pdf','-transparent','-nocrop');
-
 close(hfig);
 
 end
