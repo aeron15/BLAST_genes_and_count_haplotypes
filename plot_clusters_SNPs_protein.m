@@ -4,6 +4,7 @@ function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_se
 %PLOT_CLUSTERS_SNPs_PROTEIN
 %just take 36 strains and not all of them
 %sort based on the set point
+% COUNT NUMBER OF HAPLOTYPES/CLUSTERS
 
 clusters={idx_identical_sequences.Strains};
 %% Get clusters from idx identical sequences
@@ -27,17 +28,19 @@ hold all;
 k_strain=1;
 
 labels={};
+cluster_counter=0;
 
 for iCluster=1:length(clusters)
     
     cluster_analyzed=clusters{iCluster};
     
+    %cluster_analyzed=clusters{8};%PW5 strain for testing purposes
     %renames the cluster to the sequence used in the
     %setpoints_value structure so that the names match
-    try
-    cluster_analyzed=clean_up_cluster(cluster_analyzed,new_strains);
-    catch
-       display('lets check what the problem is') 
+    cluster_analyzed=clean_up_cluster(cluster_analyzed);
+    
+    if ~(isempty(cluster_analyzed))
+        cluster_counter=cluster_counter+1;
     end
     
     for iStrain=1:length(cluster_analyzed)
@@ -47,8 +50,6 @@ for iCluster=1:length(clusters)
             y=C(x);
             
             x_strain=repmat(k_strain,length(y),1);
-            
-            cluster_analyzed(iStrain)
             plot(x_strain,y,'.','MarkerSize',mark_size_plot,'color',colors_vec(iCluster,:));
             ylim([-9 -3])
             vline(k_strain,'k--')
@@ -73,13 +74,13 @@ end
 
 %%
 xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
-title(['Haplotypes for  ' gene]);
-%title(['Haplotypes for  ' gene ' with ' num2str(length(clusters)) ' clusters']);
+%title(['Haplotypes for  ' gene],'interpreter','none');
+title(['Haplotypes for  ' gene ' with ' num2str(cluster_counter) ' clusters'],'interpreter','none');
 
 ylim([-9 -3])
 
 Set_fig_RE(hfig,16,16,18)
-filename=['Clusters_PROT' gene];
+filename=['Clusters_' gene];
 export_fig(filename, '-pdf','-transparent','-nocrop');
 
 close(hfig);
