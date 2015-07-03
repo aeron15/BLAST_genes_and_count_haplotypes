@@ -76,7 +76,7 @@ ylim([-9 -3])
 
 Set_fig_RE(hfig,16,16,18);
 filename=['Clusters_' gene];
-export_fig(filename, '-pdf','-transparent','-nocrop');
+export_fig_specific_path(filename, '-pdf','-transparent','-nocrop');
 close(hfig);
 
 end

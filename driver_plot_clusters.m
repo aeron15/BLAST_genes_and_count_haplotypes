@@ -10,10 +10,11 @@ function driver_plot_clusters(queryGenes,data_output)
 
 for iqueryGenes=1:length(queryGenes)
     gene=queryGenes{iqueryGenes};
-    %
-    load (['output/DNA_DATA_ONLY_ORF' gene]);
-    QueryStrain_name=[gene '_ONLY_ORF'];
-    plot_clusters_SNPs_protein(vector,strains,DNA_idx_identical_sequences,QueryStrain_name);
+
+    % ONLY ORF DNA
+    %load (['output/DNA_DATA_ONLY_ORF' gene]);
+    %QueryStrain_name=[gene '_ONLY_ORF'];
+    %plot_clusters_SNPs_protein(vector,strains,DNA_idx_identical_sequences,QueryStrain_name);
     
     %
     load (['output/DNA_DATA_PROMOTER_ORF' gene])
