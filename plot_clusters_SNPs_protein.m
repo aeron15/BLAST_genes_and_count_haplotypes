@@ -39,6 +39,7 @@ for iCluster=1:length(clusters)
     catch
        display('lets check what the problem is') 
     end
+    
     for iStrain=1:length(cluster_analyzed)
         
         try
