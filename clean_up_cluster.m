@@ -23,7 +23,9 @@ substitution_list={
     'UWOPS05_227_2';
     'UWOPS87_2421';
     'Y9combined';
-    'Y12SGRP'};
+    'Y12SGRP';
+    'UWOPS03_461_4'
+    };
 
 %'Y12SGRP';
 %'Y9';
@@ -40,9 +42,8 @@ substitution_list{find(strcmp(substitution_list(:,1),'Gal3YJM978')),2}='YJM978';
 substitution_list{find(strcmp(substitution_list(:,1),'L_1528')),2}='L-1528';
 substitution_list{find(strcmp(substitution_list(:,1),'L_1374')),2}='L-1374';
 substitution_list{find(strcmp(substitution_list(:,1),'I14')),2}='I-14';
-
 substitution_list{find(strcmp(substitution_list(:,1),'UWOPS05_227_2')),2}='UWOPS05-227.2';
-substitution_list{find(strcmp(substitution_list(:,1),'UWOPS03')),2}='UWOPS03-461.4';
+substitution_list{find(strcmp(substitution_list(:,1),'UWOPS03_461_4')),2}='UWOPS03-461.4';
 substitution_list{find(strcmp(substitution_list(:,1),'UWOPS87_2421')),2}='UWOPS87-242.1';
 substitution_list{find(strcmp(substitution_list(:,1),'NC_02')),2}='NC-02';
 substitution_list{find(strcmp(substitution_list(:,1),'YIIc17')),2}='YIIc17-E5';
@@ -58,7 +59,6 @@ StrainsRemoved_set={'REF','273614N','378604X','DBVPG6044','378604X','Y55','NCYC1
 cluster_analyzed=setdiff(cluster_analyzed,StrainsRemoved_set);%Remove unwanted strains
 
 
-%%
 cluster_analyzed=setdiff(cluster_analyzed,StrainsRemoved_set);%Remove unwanted strains
 
 for iCounter=1:length(cluster_analyzed)
