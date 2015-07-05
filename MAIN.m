@@ -15,7 +15,7 @@ load('/Users/RenanEscalante/Documents/phenotypic_variation/Analysis_data_create_
 driver_plot_clusters(queryGenes,data_output)
 
 %%
-compute_SNP_number_haplotype_count(queryGenes)
+%compute_SNP_number_haplotype_count(queryGenes)
 
 
 

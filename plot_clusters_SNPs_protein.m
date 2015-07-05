@@ -48,7 +48,7 @@ for iCluster=1:length(clusters)
             
             x_strain=repmat(k_strain,length(y),1);
             plot(x_strain,y,'.','MarkerSize',mark_size_plot,'color',colors_vec(iCluster,:));
-            ylim([-9 -3])
+            set_yaxis()
             vline(k_strain,'k--')
             
         catch
@@ -72,7 +72,7 @@ xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
 %title(['Haplotypes for  ' gene],'interpreter','none');
 title(['Haplotypes for  ' gene ' with ' num2str(cluster_counter) ' clusters'],'interpreter','none');
 
-ylim([-9 -3])
+set_yaxis()
 
 Set_fig_RE(hfig,16,16,18);
 filename=['Clusters_' gene];
