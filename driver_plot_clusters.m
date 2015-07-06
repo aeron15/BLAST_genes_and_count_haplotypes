@@ -17,12 +17,12 @@ for iqueryGenes=1:length(queryGenes)
     %plot_clusters_SNPs_protein(vector,strains,DNA_idx_identical_sequences,QueryStrain_name);
     
     %
-    load (['output/DNA_DATA_PROMOTER_ORF' gene])
+    load (['../data/DNA_DATA_PROMOTER_ORF' gene])
     QueryStrain_name=[gene '_PROMOTER_ORF'];
     plot_clusters_SNPs_protein(vector,strains,DNA_idx_identical_sequences,QueryStrain_name);
     
     %
-    load (['output/PROT_DATA_' gene])
+    load (['../data/PROT_DATA_' gene])
     QueryStrain_name=[gene '_PROT'];
     plot_clusters_SNPs_protein(vector,strains,PROT_idx_identical_sequences,QueryStrain_name);
     

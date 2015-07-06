@@ -178,7 +178,7 @@
 
 function [im, alpha] = export_fig_specific_path(varargin)
 %paht where all the data gets exported
-pathOutput= '/Users/RenanEscalante/Dropbox/Phenotypic_diversity/gal_JanFeb2014/Draft_paper/20150630_draft/';
+pathOutput= '../outputFigures';
 
 % Make sure the figure is rendered correctly _now_ so that properties like
 % axes limits are up-to-date.
