@@ -3,7 +3,7 @@ function identfy_SNPs(sequence_table,All_names,queryGene,path_data)
 
 %COMPARE_SEQUENCES_LITI  creates table for SNP counting
 % Load data and concatenate arrays for SNP count. Center all sequences
-% around 1001
+% around 1001 (start site)
 
 %% SNP count for PROTEIN DATA
 protein_table=convert_to_protein(sequence_table,queryGene);

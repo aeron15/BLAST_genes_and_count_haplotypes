@@ -9,7 +9,9 @@ for iQueryGene=1:length(queryGenes)
     queryGene=queryGenes{iQueryGene};
     %% All natural isolates. Added 1 extra haplotype for Y9. Determine how many Y12-WashU and Y12-SGRP
     
-    load('strains_in_study_20150622.mat')%List of names of strains, perhaps needs a conversion
+    %load('strains_in_study_20150622.mat')%List of names of strains, perhaps needs a conversion
+    load('../outputFigures/data_output_figure_1.mat')%List of names of strains, perhaps needs a conversion
+    strains={data_output.strains};
     
     %Count haplotypes among 36 strains in the experiment with ORF only
     get_orf_promoter=0;
@@ -21,7 +23,9 @@ for iQueryGene=1:length(queryGenes)
     
     %% Get haplotype count figure 4
     
-    load('strains_allele_swaps.mat')
+    %load('strains_allele_swaps.mat')
+    load('../outputFigures/data_output_figure_4.mat')%List of names of strains, perhaps needs a conversion
+    strains={data_output.strains};
     
     %Count haplotypes among 36 strains in the experiment with ORF only
     get_orf_promoter=0;
