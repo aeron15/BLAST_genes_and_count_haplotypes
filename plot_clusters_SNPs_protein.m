@@ -1,7 +1,8 @@
 
 function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_sequences,gene)
 
-%PLOT_CLUSTERS_SNPs_PROTEIN
+%PLOT_CLUSTERS_SNPs_PROTEIN plots strains based on their haplotype. Each
+%color represents a different haplotype.
 
 clusters={idx_identical_sequences.Strains};
 %% Get clusters from idx identical sequences
@@ -14,7 +15,7 @@ clusters=clusters(is);
 colors_vec=cbrewer('qual', 'Set1', 9);
 colors_vec=repmat(colors_vec,5,1);
 
-% Sort setpoints and the strains accordingly
+% Sort setpoints and the strains
 [C,idx]=sort(set_points_setvalue);
 new_strains=strains(idx)';
 
@@ -31,7 +32,6 @@ for iCluster=1:length(clusters)
     
     cluster_analyzed=clusters{iCluster};
     
-    %cluster_analyzed=clusters{8};%PW5 strain for testing purposes
     %renames the cluster to the sequence used in the
     %setpoints_value structure so that the names match
     cluster_analyzed=clean_up_cluster(cluster_analyzed);
@@ -48,7 +48,7 @@ for iCluster=1:length(clusters)
             
             x_strain=repmat(k_strain,length(y),1);
             plot(x_strain,y,'.','MarkerSize',mark_size_plot,'color',colors_vec(iCluster,:));
-            ylim([-9 -3])
+            set_yaxis()
             vline(k_strain,'k--')
             
         catch
@@ -72,11 +72,11 @@ xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
 %title(['Haplotypes for  ' gene],'interpreter','none');
 title(['Haplotypes for  ' gene ' with ' num2str(cluster_counter) ' clusters'],'interpreter','none');
 
-ylim([-9 -3])
+set_yaxis()
 
 Set_fig_RE(hfig,16,16,18);
 filename=['Clusters_' gene];
-export_fig(filename, '-pdf','-transparent','-nocrop');
+export_fig_specific_path(filename, '-pdf','-transparent','-nocrop');
 close(hfig);
 
 end

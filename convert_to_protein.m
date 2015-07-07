@@ -41,14 +41,10 @@ for iSeq=1:size(sequence_table,1)
                 counter_pos=counter_pos+1;
                 
             catch
-                %There is an insertion that we will expand
-                insertion=seq_tmp{iPos}{:};
                 
-                %for i=1:length(insertion)
-                
+                insertion=seq_tmp{iPos}{:};%There is an insertion that we will expand
                 seq2prot(counter_pos)=insertion(1);
                 counter_pos=counter_pos+1;
-                % end
                 
             end
             

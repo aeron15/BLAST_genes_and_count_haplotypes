@@ -1,20 +1,8 @@
 function idx_identical_sequences=determine_unique_protein(SNP_structure, sequence_table, name_sequences,queryGene)
-% DETERMINE_UNIQUE determines unique sequences according to the SNPs
-% modified 20150316
 
-%%
+% DETERMINE_UNIQUE determines unique sequences according variation in
+% sequence table
 
-% conversion_table=csv2cell('doc/20150310_Genes_conversion.csv');
-% 
-% query_genes_names=conversion_table(:,1);
-% 
-% idx=find(strcmp(queryGene,query_genes_names));
-% 
-% len_ORF=conversion_table{idx,3};
-% 
-% length_table=(len_ORF/3);
-% 
-% sequence_table=sequence_table(:,[1:length_table]);
 
 %% Extract variable positions in the alignment
 

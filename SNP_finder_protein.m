@@ -19,7 +19,7 @@ for iCol=1:length(sequence_table)
     if ~(length(unique([table_compared{:}]))==1)
         
         %Variable position detected
-        list={'A';'R';'N';'D';'C';'Q';'G';'H';'I';'L';'K';'M';'F';'P';'S';'T';'W';'Y';'V'};
+        list={'A';'R';'N';'D';'C';'Q';'G';'H';'I';'L';'K';'M';'F';'P';'S';'T';'W';'Y';'V';'*'};
         
         %Determine the most common change
         Strains_with_a_given_SNP={};

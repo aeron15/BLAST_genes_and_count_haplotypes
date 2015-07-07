@@ -47,7 +47,7 @@ for iquery = 1:length(queryGenes)
     [names_genomes_Liti,sequences_cells_Liti,sequences_liti]=extract_Liti(queryGenes{iquery},path_data);
     
     %% Export fasta files. sequences_liti (below) and QueryStrains_fasta can be combined to export a fasta file
-    FASTA_filename=['output/' queryGenes{iquery} '.fasta'];
+    FASTA_filename=['../data/' queryGenes{iquery} '.fasta'];
     fastawrite(FASTA_filename, QueryStrains_fasta);
     fastawrite(FASTA_filename, sequences_liti);
     
