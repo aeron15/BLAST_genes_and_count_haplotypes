@@ -12,12 +12,15 @@ queryPath = [path_data 'data/query_genes/'];     % contains FASTA files of query
 targetPath = [path_data 'data/target_genomes/']; % contains FASTA files of target genomes
 
 %Load all target strain names
-targetStrains = {'BC187','YJM978','S288c'};
+%targetStrains = {'FL100'};
 
 %Load all target strain names
-%load('target_all_strains_blast')
+load('target_all_strains_blast')
 
 for itarget = 1:length(targetStrains)
+    
+     disp(['BLASTing ' file_to_blast ' to ' targetStrains{itarget} ' genome...']);
+        
     % run blast
     blastResult = blastlocal('InputQuery',[PlasmidData_path file_to_blast],...
         'BlastPath',blastPath,...
@@ -29,8 +32,13 @@ for itarget = 1:length(targetStrains)
     
     % Extracts info from BLAST hits, filters out short hits, and merges hits
     % nearby the top hit.
-    allBlastResults{itarget} = ProcessHits(blastResult, targetGenome);
+    allBlastResults{itarget} = ProcessHits(blastResult, targetGenome,targetStrains{itarget} );
     
 end
+
+%save('allBlastResults','allBlastResults')
+
+%Rank hits based on the E-value. Length of identities.
+sort_hits(allBlastResults)
 
 end

@@ -30,7 +30,7 @@ run_BLAST(queryGenes,path_data)
 load('../outputFigures/data_output_figure_1.mat')
 driver_plot_clusters(queryGenes,data_output)
 
-%%
+%% Compute the number of haplotypes in the experiment
 %compute_SNP_number_haplotype_count(queryGenes)
 
 

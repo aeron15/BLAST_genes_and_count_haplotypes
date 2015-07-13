@@ -1,15 +1,11 @@
-function allhits = ProcessHits(blastResult, targetGenome)
+function allhits = ProcessHits(blastResult, targetGenome,targetStrains)
 % PROCESSHITS takes the results of a single BLAST of query gene to target
 % genome, filters out short hits, and merges hits on a given chromosome
 % that are within a certain distance of the top hit. Returns a struct array
-% with the chromosome name, position, and sequence of each hit. Hits 
+% with the chromosome name, position, and sequence of each hit. Hits
 % on reverse strand are returned as reverse-complement.
-% 
-% Created 20141113 JW
 %
-% Updated 20141205 JW: Fixed bug that uses an entire header line as contig
-% name instead of just the first word; fixed bug that tries to grab
-% flanking sequence past the end of a chromosome.
+% Modified to return expected values and  mismatches
 
 % parameters
 minlength = 300;    % minimum length to count as hit
@@ -37,16 +33,24 @@ for ichr = 1:length(blastResult.Hits)
     itophit = ihit;
     for ihsp = 1:length(HSPs)
         len = HSPs(ihsp).AlignmentLength;
-            
+        
         % filter on hit length
-        if len > minlength  
+        if len > minlength
             allhits(ihit).chromosome = blastResult.Hits(ichr).Name; % contig/chrom name
             allhits(ihit).length = len;
             
             start = HSPs(ihsp).SubjectIndices(1);
             stop = HSPs(ihsp).SubjectIndices(2);
+            expect = HSPs(ihsp).Expect;
+            identities = HSPs(ihsp).Identities.Match;
+            mismatches =  HSPs(ihsp).Mismatches.Match;
+            
+            allhits(ihit).strain = targetStrains;
             allhits(ihit).start = start;
             allhits(ihit).stop = stop;
+            allhits(ihit).expect = expect;
+            allhits(ihit).identities = identities;
+            allhits(ihit).mismatches = mismatches;
             
             % extract sequence from subject genome, including flanking
             % regions
