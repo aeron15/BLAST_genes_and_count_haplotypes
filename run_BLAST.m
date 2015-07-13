@@ -4,9 +4,9 @@ function run_BLAST(queryGenes,path_data)
 
 %% Load specific target strains for BLAST
 
-%load('targetStrains_WashU.mat')
+load('targetStrains_WashU.mat')
 
-targetStrains_WashU={'YPS163'};
+%targetStrains_WashU={'YPS163'};
 
 blast_queries_to_targets_extract_ORF(queryGenes,targetStrains_WashU,path_data);
 

@@ -2,9 +2,11 @@ function MAIN
 
 %MAIN script determines the number of haplotypes and SNPs for genes across
 %strains in the paper
-% For the haplotype count sequences for Liti strains derived from whole
+% For the haplotype count sequences for Liti strains (24 strains in targetStrains_Liti) derived from whole
 % genome sequencing and other sequences are blasted from the Fay collection
-% (18 strains).
+% (18 strains in targetStrains_WashU).
+%
+% Python scripts determine coverage of sequencing
 
 %Create an output folder if it does not exist
 if ~exist('../outputFigures')
