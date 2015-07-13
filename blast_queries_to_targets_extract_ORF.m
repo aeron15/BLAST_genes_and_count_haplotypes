@@ -51,7 +51,8 @@ for iquery = 1:length(queryGenes)
     fastawrite(FASTA_filename, QueryStrains_fasta);
     fastawrite(FASTA_filename, sequences_liti);
     
-    %% Combine data names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti
+    %% Combine BLASTED sequences and extracted sequences from the genome 
+    % Combine data names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti
     
     [sequence_table,All_names]=combine_sequences_names(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti);
     
