@@ -14,6 +14,9 @@ targetPath = [path_data 'data/target_genomes/']; % contains FASTA files of targe
 %Load all target strain names
 targetStrains = {'BC187','YJM978','S288c'};
 
+%Load all target strain names
+%load('target_all_strains_blast')
+
 for itarget = 1:length(targetStrains)
     % run blast
     blastResult = blastlocal('InputQuery',[PlasmidData_path file_to_blast],...
