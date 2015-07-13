@@ -4,7 +4,7 @@ function [names_genomes,sequences_cells,sequences_liti]=extract_Liti(queryGene,p
 
 tmp = fastaread([path_data 'data/query_genes/' queryGene '.fsa.txt']);
 
-conversion_table=csv2cell([path_data 'doc/20150310_Genes_conversion.csv']);
+conversion_table=csv2cell(['Gene_FileNames_StandardNames_Lenght_conversion.csv']);
 
 query_genes_names=conversion_table(:,1);
 

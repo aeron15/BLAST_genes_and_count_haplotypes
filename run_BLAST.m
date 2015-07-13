@@ -1,12 +1,12 @@
-function run_BLAST(queryGenes)
+function run_BLAST(queryGenes,path_data)
 %RUN_BLAST runs BLAST on targeted strains and then uses the Liti collection
 %to complete the number of strains
 
-path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
+%% Load specific target strains for BLAST
 
-load('targetStrains_WashU.mat')
+%load('targetStrains_WashU.mat')
 
-%targetStrains_WashU={'YPS163'};
+targetStrains_WashU={'YPS163'};
 
 blast_queries_to_targets_extract_ORF(queryGenes,targetStrains_WashU,path_data);
 

@@ -15,7 +15,7 @@ if R
 end
 %%
 
-conversion_table=csv2cell('20150310_Genes_conversion.csv');
+conversion_table=csv2cell('Gene_FileNames_StandardNames_Lenght_conversion.csv');
 query_genes_names=conversion_table(:,1);
 idx=find(strcmp(queryGene,query_genes_names));
 len_ORF=conversion_table{idx,3};
