@@ -72,7 +72,7 @@ end
 
 if strcmp(haplotype_type,'alleleSwaps_haplotypes_')
     
-%   labels=addlabes_GAL3alleleSwaps(labels);
+    labels=addlabels_GAL3alleleSwaps(labels);
     xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
     
 else
