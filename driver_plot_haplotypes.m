@@ -12,6 +12,10 @@ for iqueryGenes=1:length(queryGenes)
     load (['../data/DNA_DATA_ONLY_ORF' gene]);
     QueryStrain_name=[gene '_ONLY_ORF'];
     
+%Remove BC187
+%     vector=vector(2:35);
+%     strains=strains(2:35);
+%     
     plot_clusters_SNPs_protein(vector,strains,DNA_idx_identical_sequences,QueryStrain_name,filename);
     
     %

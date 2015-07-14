@@ -13,6 +13,7 @@ if ~exist('../outputFigures')
     mkdir('../outputFigures');
 end
 %% Query genes
+close all;
 queryGenes = {'S288C_YDR009W_GAL3_flanking'};
 %queryGenes =
 %{'S288C_YBR020W_GAL1_flanking','S288C_YML051W_GAL80_flanking'};
@@ -28,10 +29,10 @@ queryGenes = {'S288C_YDR009W_GAL3_flanking'};
 % run_BLAST(queryGenes,path_data)
 
 %% Plot different haplotypes for natural isolates
-% load('../outputFigures/data_output_figure_1.mat');
-% filename='naturalIsolates_haplotypes_';
-%     
-% driver_plot_haplotypes(queryGenes,data_output,filename);
+load('../outputFigures/data_output_figure_1.mat');
+filename='naturalIsolates_haplotypes_';
+    
+driver_plot_haplotypes(queryGenes,data_output,filename);
 
 %% Plot different haplotypes for allele swaps
 load('../outputFigures/data_output_figure_4.mat');
