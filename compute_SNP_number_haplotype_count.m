@@ -10,7 +10,6 @@ for iQueryGene=1:length(queryGenes)
     queryGene=queryGenes{iQueryGene};
     %% All natural isolates. Added 1 extra haplotype for Y9. Determine how many Y12-WashU and Y12-SGRP
     
-    %load('strains_in_study_20150622.mat')%List of names of strains, perhaps needs a conversion
     load('../outputFigures/data_output_figure_1.mat')%List of names of strains, perhaps needs a conversion
     strains={data_output.strain};
     
@@ -30,7 +29,6 @@ for iQueryGene=1:length(queryGenes)
     
     %Count haplotypes among natural isolates on figure 1. Using protein
     %sequence.
-    
     
     
     %% Get haplotype count figure 4. Allele swaps in the YJM978 background.
