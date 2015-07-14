@@ -29,13 +29,16 @@ queryGenes = {'S288C_YDR009W_GAL3_flanking','S288C_YBR020W_GAL1_flanking','S288C
 
 %% Plot different haplotypes for natural isolates
 load('../outputFigures/data_output_figure_1.mat');
-driver_plot_haplotypes(queryGenes,data_output);
+filename='naturalIsolates_haplotypes_';
+    
+driver_plot_haplotypes(queryGenes,data_output,filename);
 
 %% Plot different haplotypes for allele swaps
 % load('../outputFigures/data_output_figure_4.mat');
+%filename=['alleleSwaps_haplotypes_' gene];
 % driver_plot_haplotypes(queryGenes,data_output);
 
-% %% Compute the number of haplotypes in the experiment
+%% Compute the number of haplotypes in the experiment
 % compute_SNP_number_haplotype_count(queryGenes)
 % 
 % %% Export log of the bioinformatic analysis
