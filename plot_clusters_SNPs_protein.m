@@ -6,6 +6,9 @@ function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_se
 
 clusters={idx_identical_sequences.Strains};
 
+haplotype_type=filename;
+filename=[filename gene];
+
 %% Get clusters from idx identical sequences
 
 s=cellfun(@size,clusters,'uniform',false);%sort clusters
@@ -67,8 +70,17 @@ for iCluster=1:length(clusters)
     labels=horzcat(labels,cluster_analyzed);
 end
 
+if strcmp(haplotype_type,'alleleSwaps_haplotypes_')
+    
+%   labels=addlabes_GAL3alleleSwaps(labels);
+    xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
+    
+else
+    
+    xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
+    
+end
 
-xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
 title(['Haplotypes for  ' gene ' with ' num2str(cluster_counter) ' haplotypes'],'interpreter','none');
 
 set_yaxis();

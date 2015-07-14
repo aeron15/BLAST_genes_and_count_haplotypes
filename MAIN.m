@@ -13,7 +13,7 @@ if ~exist('../outputFigures')
     mkdir('../outputFigures');
 end
 %% Query genes
-%queryGenes = {'S288C_YBR020W_GAL1_flanking'};
+%queryGenes = {'S288C_YDR009W_GAL3_flanking'};
 %queryGenes =
 %{'S288C_YBR020W_GAL1_flanking','S288C_YML051W_GAL80_flanking'};
 queryGenes = {'S288C_YDR009W_GAL3_flanking','S288C_YBR020W_GAL1_flanking','S288C_YBR018C_GAL7_flanking',...
@@ -34,9 +34,11 @@ filename='naturalIsolates_haplotypes_';
 driver_plot_haplotypes(queryGenes,data_output,filename);
 
 %% Plot different haplotypes for allele swaps
-% load('../outputFigures/data_output_figure_4.mat');
-%filename=['alleleSwaps_haplotypes_' gene];
-% driver_plot_haplotypes(queryGenes,data_output);
+load('../outputFigures/data_output_figure_4.mat');
+data_output=convert_data_output(data_output);
+filename='alleleSwaps_haplotypes_';
+
+driver_plot_haplotypes(queryGenes,data_output,filename);
 
 %% Compute the number of haplotypes in the experiment
 % compute_SNP_number_haplotype_count(queryGenes)

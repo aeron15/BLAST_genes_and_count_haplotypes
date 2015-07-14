@@ -1,15 +1,12 @@
 function driver_plot_haplotypes(queryGenes,data_output,filename)
-%DRIVER_PLOT_HAPLOTYPES plots strains witht the same sequences, haplotypes.
+%DRIVER_PLOT_HAPLOTYPES plots strains witht the same sequence (haplotypes)
 
 %Compute mean of the replicates
 [vector,strains]=compute_mean_data_output(data_output);
 
-
-
 for iqueryGenes=1:length(queryGenes)
-    gene=queryGenes{iqueryGenes};
-    filename=[filename gene];
 
+    gene=queryGenes{iqueryGenes};
 
     %
     load (['../data/DNA_DATA_ONLY_ORF' gene]);
