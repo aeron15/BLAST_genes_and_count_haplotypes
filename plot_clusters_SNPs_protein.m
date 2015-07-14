@@ -72,7 +72,7 @@ xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
 %title(['Haplotypes for  ' gene],'interpreter','none');
 title(['Haplotypes for  ' gene ' with ' num2str(cluster_counter) ' haplotypes'],'interpreter','none');
 
-set_yaxis()
+set_yaxis();
 
 Set_fig_RE(hfig,16,16,18);
 filename=['Haplotypes_' gene];

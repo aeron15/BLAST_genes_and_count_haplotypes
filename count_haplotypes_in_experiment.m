@@ -7,18 +7,6 @@ function [HaplotypeCount, Number_SNPs]=count_haplotypes_in_experiment(strains,ge
 %Create new haplotypes
 % There are 35 sequences because there are two Y9 strains (Y9 and Y9
 % combined)
-% 
-% if get_orf_promoter
-%     load('output/DNA_DATA_PROMOTER_ORFS288C_YDR009W_GAL3_flanking.mat')
-% else
-%     load('output/DNA_DATA_ONLY_ORFS288C_YDR009W_GAL3_flanking.mat')
-% end
-
-% if get_orf_promoter
-%     load('output/DNA_DATA_PROMOTER_ORFS288C_YML051W_GAL80_flanking.mat')
-% else
-%     load('output/DNA_DATA_ONLY_ORFS288C_YML051W_GAL80_flanking.mat')
-% end
 
 if get_orf_promoter
     load(['../data/DNA_DATA_PROMOTER_ORF' QueryGene '.mat'])
@@ -46,7 +34,7 @@ for iCell=1:length(AllStrains_haplotypes)
         len_haplotype=length(QueryStrain_cell);
         
         if len_haplotype>1
-
+            
             %Count of haplotypes of strains with more than one strain in
             %the group
             strains_haplotype_count(counter)=len_haplotype;
@@ -61,8 +49,16 @@ end
 % The number of haplotypes is the number of strains minus the number of
 % strains that are part of haplotypes with more than one strain
 
- HaplotypeCount=length(strains)-sum(strains_haplotype_count);
- Number_SNPs=length(DNA_SNP_structure);
+if exist('strains_haplotype_count')
+    HaplotypeCount=length(strains)-sum(strains_haplotype_count);
+    Number_SNPs=length(DNA_SNP_structure);
+    
+else %No halotypes with more than one strain were detected resulting in each strain belonging to a different haplotype
+    HaplotypeCount=length(strains);
+    Number_SNPs=length(DNA_SNP_structure);
+    
+    
+end
 
 
 
