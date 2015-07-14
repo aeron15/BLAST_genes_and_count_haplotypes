@@ -1,10 +1,11 @@
 
-function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_sequences,gene)
+function plot_clusters_SNPs_protein(set_points_setvalue,strains,idx_identical_sequences,gene,filename)
 
 %PLOT_CLUSTERS_SNPs_PROTEIN plots strains based on their haplotype. Each
 %color represents a different haplotype.
 
 clusters={idx_identical_sequences.Strains};
+
 %% Get clusters from idx identical sequences
 
 s=cellfun(@size,clusters,'uniform',false);%sort clusters
@@ -67,15 +68,12 @@ for iCluster=1:length(clusters)
 end
 
 
-%%
 xticklabel_rotate([1 : length(labels)],45,labels,'interpreter','none');
-%title(['Haplotypes for  ' gene],'interpreter','none');
 title(['Haplotypes for  ' gene ' with ' num2str(cluster_counter) ' haplotypes'],'interpreter','none');
 
 set_yaxis();
 
 Set_fig_RE(hfig,16,16,18);
-filename=['Haplotypes_' gene];
 export_fig_specific_path(filename, '-pdf','-transparent','-nocrop');
 close(hfig);
 
