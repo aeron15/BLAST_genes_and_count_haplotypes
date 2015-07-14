@@ -57,9 +57,6 @@ for iRow=1:nRows
             
             conversion_table(iRow,iCol)=replace_by_number(base_pair_analyzed);
             
-        catch
-            
-            display('tmp')
         end
         
     end
