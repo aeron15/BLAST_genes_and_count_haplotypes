@@ -21,9 +21,9 @@ function [HaplotypeCount, Number_SNPs]=count_haplotypes_in_experiment(strains,ge
 % end
 
 if get_orf_promoter
-    load(['../outputFigures/DNA_DATA_PROMOTER_ORF' QueryGene '.mat'])
+    load(['../data/DNA_DATA_PROMOTER_ORF' QueryGene '.mat'])
 else
-    load(['../outputFigures/DNA_DATA_ONLY_ORF' QueryGene '.mat'])
+    load(['../data/DNA_DATA_ONLY_ORF' QueryGene '.mat'])
 end
 
 %% Sort the haplotypes based on number of strains in the haplotype
@@ -46,9 +46,9 @@ for iCell=1:length(AllStrains_haplotypes)
         len_haplotype=length(QueryStrain_cell);
         
         if len_haplotype>1
-            %intersect has to be longer than 1
-            %QueryStrain_cell
-            
+
+            %Count of haplotypes of strains with more than one strain in
+            %the group
             strains_haplotype_count(counter)=len_haplotype;
             counter=counter+1;
             
@@ -58,6 +58,8 @@ for iCell=1:length(AllStrains_haplotypes)
     
 end
 %% Number of haplotypes
+% The number of haplotypes is the number of strains minus the number of
+% strains that are part of haplotypes with more than one strain
 
  HaplotypeCount=length(strains)-sum(strains_haplotype_count);
  Number_SNPs=length(DNA_SNP_structure);
