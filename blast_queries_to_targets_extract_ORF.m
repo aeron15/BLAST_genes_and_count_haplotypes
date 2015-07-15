@@ -51,13 +51,12 @@ for iquery = 1:length(queryGenes)
     fastawrite(FASTA_filename, QueryStrains_fasta);
     fastawrite(FASTA_filename, sequences_liti);
     
-    %% Combine BLASTED sequences and extracted sequences from the genome 
-    % Combine data names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti
-    
+    %% Combine BLASTED sequences and extracted sequences from the genome of Liti strains
     [sequence_table,All_names]=combine_sequences_names(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti);
     
     %% Identification of SNPs with respect to the reference strain S288C
     identfy_SNPs(sequence_table,All_names,queryGenes{iquery},path_data)
+    save(['../output_bionformatics/sequences_' queryGenes{iquery}],'sequence_table','All_names');
     
     %% Keep track of changes for McDonal-Kreitman test
     %[tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGenes{iquery},path_data);
