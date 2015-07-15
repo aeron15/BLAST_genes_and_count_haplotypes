@@ -178,7 +178,7 @@
 
 function [im, alpha] = export_fig_specific_path(varargin)
 %paht where all the data gets exported
-pathOutput= '../outputFigures/';
+pathOutput= '../output_bioinformatics/';
 
 % Make sure the figure is rendered correctly _now_ so that properties like
 % axes limits are up-to-date.

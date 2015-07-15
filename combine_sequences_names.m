@@ -1,6 +1,6 @@
 function [sequence_table,All_names]=combine_sequences_names(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti)
 
-%COMBINE_SEQUENCES_NAMES combines data from BLASTING and LITI sequences
+%COMBINE_SEQUENCES_NAMES combines data from blasting WashU and LITI sequences
 
 %Concatenate arrays
 nm1=names_genomes';
