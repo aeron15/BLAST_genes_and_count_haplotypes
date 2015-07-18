@@ -24,7 +24,7 @@ parameter_vector=double(parameter_vector);
 %Sort data based on the parameter
 for k=1:length(idx)
     
-    BestHit=allBlastResults{idx(k)}
+    BestHit=allBlastResults{idx(k)};
     
     if ~ isempty(fieldnames(BestHit))
         allBlastResults_sorted{k,1} = BestHit.strain;
