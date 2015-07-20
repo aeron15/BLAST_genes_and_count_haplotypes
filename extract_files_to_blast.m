@@ -13,8 +13,8 @@ PlasmidData_path=p.Results.PlasmidData_path;
  
 %Extracts all seq files for blasting
 
-files_to_blast1=dir([PlasmidData_path specificPlasmid '*.seq']);
 files_to_blast2=dir([PlasmidData_path specificPlasmid '*.fasta']);
+files_to_blast1=dir([PlasmidData_path specificPlasmid '*.seq']);
 
 files_to_blast={files_to_blast1.name files_to_blast2.name};
 

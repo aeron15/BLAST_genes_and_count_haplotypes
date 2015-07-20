@@ -10,7 +10,7 @@ PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning
 %Path to the data and BLAST location
 path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
 
-specificPlasmid='RB47';
+specificPlasmid='RYC60';
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 
@@ -22,6 +22,6 @@ for iFile=1:length(files_to_blast)
     
     %Hits that are equally good
     sum(hitScore == max(hitScore))
-end
+  end
 
 end
