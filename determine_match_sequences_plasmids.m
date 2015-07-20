@@ -10,7 +10,7 @@ PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning
 %Path to the data and BLAST location
 path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
 
-specificPlasmid='RB55';
+specificPlasmid='RYC49';
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 
