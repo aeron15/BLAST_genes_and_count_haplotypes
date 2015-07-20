@@ -32,8 +32,8 @@ queryGenes = {'S288C_YDR009W_GAL3_flanking'};
 
 % run_BLAST(queryGenes,path_data)
 % 
-% %% Identify SNPS for all genes
-% driver_SNP_finder(queryGenes,path_data)
+%% Identify SNPS for all genes
+driver_SNP_finder(queryGenes,path_data)
 
 %% Plot different haplotypes for natural isolates
 load('../outputFigures/data_output_figure_1.mat');
