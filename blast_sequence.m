@@ -12,7 +12,7 @@ queryPath = [path_data 'data/query_genes/'];     % contains FASTA files of query
 targetPath = [path_data 'data/target_genomes/']; % contains FASTA files of target genomes
 
 %Load all target strain names
-%targetStrains = {'FL100'};
+%targetStrains = {'YPS163'};
 
 %Load all target strain names
 load('target_all_strains_blast')

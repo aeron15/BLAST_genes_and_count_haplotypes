@@ -10,7 +10,7 @@ PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning
 %Path to the data and BLAST location
 path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
 
-specificPlasmid='RYC60';
+specificPlasmid='RB45';
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 
@@ -24,9 +24,9 @@ for iFile=1:length(files_to_blast)
     sum(hitScore == max(hitScore))
     
     %Remove extension of blasted files
-    outputFile_name=remove_extension(files_to_blast{iFile})
+    outputFile_name=remove_extension(files_to_blast{iFile});
      
-    save(['../output_bioinformatics/BLASTA_'  outputFile_name], 'allBlastResults_sorted');
+    save(['../output_bioinformatics/BLASTA_score_'  outputFile_name], 'allBlastResults_sorted');
     
   end
 

@@ -4,8 +4,6 @@ function allhits = ProcessHits(blastResult, targetGenome,targetStrains)
 % that are within a certain distance of the top hit. Returns a struct array
 % with the chromosome name, position, and sequence of each hit. Hits
 % on reverse strand are returned as reverse-complement.
-%
-% Modified to return expected values and  mismatches
 
 % parameters
 minlength = 300;    % minimum length to count as hit
@@ -44,6 +42,7 @@ for ichr = 1:length(blastResult.Hits)
             expect = HSPs(ihsp).Expect;
             identities = HSPs(ihsp).Identities.Match;
             mismatches =  HSPs(ihsp).Mismatches.Match;
+            score = HSPs(ihsp).Score;
             
             allhits(ihit).strain = targetStrains;
             allhits(ihit).start = start;
@@ -51,6 +50,7 @@ for ichr = 1:length(blastResult.Hits)
             allhits(ihit).expect = expect;
             allhits(ihit).identities = identities;
             allhits(ihit).mismatches = mismatches;
+            allhits(ihit).score = score;
             
             % extract sequence from subject genome, including flanking
             % regions

@@ -1,9 +1,10 @@
 function allBlastResults_sorted = sort_hits(allBlastResults)
-%Sort hits based on a parameter, most likely E value but could also be
-%length of the match
+%Sort hits based on a parameter. The parameter used to sort hits is the
+%score of the blast hit
+
 % The output list the best hit
 %parameter= 'expect';
-parameter= 'identities';
+parameter= 'score';
 
 for iHit=1:length(allBlastResults)
     
@@ -29,8 +30,9 @@ for k=1:length(idx)
     if ~ isempty(fieldnames(BestHit))
         allBlastResults_sorted{k,1} = BestHit.strain;
         allBlastResults_sorted{k,2} = BestHit.chromosome;
-        allBlastResults_sorted{k,3} = BestHit.identities;
+        allBlastResults_sorted{k,3} = BestHit.identities;%Aligned length
         allBlastResults_sorted{k,4} = BestHit.expect;
+        allBlastResults_sorted{k,5} = BestHit.score;
     end
 end
 
