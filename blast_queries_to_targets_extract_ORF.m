@@ -1,6 +1,6 @@
 function blast_queries_to_targets_extract_ORF(queryGenes,targetStrains,path_data)
-% Runs BLAST of multiple query genes to multiple target ("subject")
-% genomes.
+% BLAST_QUERIES_TO_TARGETS_EXTRACT_ORF runs BLAST of multiple query genes to 
+% multiple target ("subject") genomes.
 %
 % This script assumes that each target genome sequence has been formatted
 % into a BLAST database, which is true for all of the included Liti+Fay
