@@ -21,7 +21,7 @@ for iFile=1:length(files_to_blast)
     %Remove extension of blasted files
     outputFile_name=remove_extension(files_to_blast{iFile});
      
-    save(['../output_bioinformatics/BLASTA_'  outputFile_name], 'allBlastResults_sorted');
+    save(['../output_bioinformatics/BLASTA_scores_'  outputFile_name], 'allBlastResults_sorted','bestScore_counts');
     
   end
 
