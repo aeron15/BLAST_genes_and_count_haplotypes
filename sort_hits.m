@@ -1,9 +1,10 @@
-function allBlastResults_sorted = sort_hits(allBlastResults)
-%Sort hits based on a parameter, most likely E value but could also be
-%length of the match
+function [allBlastResults_sorted, bestScore_counts]= sort_hits(allBlastResults)
+%SORT_HITS based on a parameter. The parameter used to sort hits is the
+%score of the blast hit
+
 % The output list the best hit
 %parameter= 'expect';
-parameter= 'identities';
+parameter= 'score';
 
 for iHit=1:length(allBlastResults)
     
@@ -16,22 +17,30 @@ for iHit=1:length(allBlastResults)
     
 end
 
-parameter_vector=double(parameter_vector);
-
 %Sort parameter
-[x,idx]=sort(parameter_vector,'descend');
+[hitScore,idx]=sort(parameter_vector,'descend');
 
-%Sort data based on the parameter
+%Hits that are equally good
+bestScore_counts = sum(hitScore == max(hitScore));
+
+blastResultCounter = 1;
+
+%Sort data based on the parameter.
 for k=1:length(idx)
     
-    BestHit=allBlastResults{idx(k)};
+    BestHit=allBlastResults{idx(k)}
     
     if ~ isempty(fieldnames(BestHit))
-        allBlastResults_sorted{k,1} = BestHit.strain;
-        allBlastResults_sorted{k,2} = BestHit.chromosome;
-        allBlastResults_sorted{k,3} = BestHit.identities;
-        allBlastResults_sorted{k,4} = BestHit.expect;
+        allBlastResults_sorted(blastResultCounter).strain = BestHit.strain;
+        allBlastResults_sorted(blastResultCounter).subject = BestHit.chromosome;
+        allBlastResults_sorted(blastResultCounter).identity = BestHit.identities;%Aligned length
+        allBlastResults_sorted(blastResultCounter).eValue = BestHit.expect;
+        allBlastResults_sorted(blastResultCounter).score = BestHit.score;
+        
+        blastResultCounter = blastResultCounter+1;
+        
     end
+    
 end
 
 

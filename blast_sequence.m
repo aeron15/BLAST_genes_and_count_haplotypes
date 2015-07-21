@@ -1,4 +1,4 @@
-function allBlastResults_sorted = blast_sequence(file_to_blast,path_data,PlasmidData_path)
+function [allBlastResults_sorted,bestScore_counts] = blast_sequence(file_to_blast,path_data,PlasmidData_path)
 
 %BLAST sequence to the target Genome List
 %
@@ -12,7 +12,7 @@ queryPath = [path_data 'data/query_genes/'];     % contains FASTA files of query
 targetPath = [path_data 'data/target_genomes/']; % contains FASTA files of target genomes
 
 %Load all target strain names
-%targetStrains = {'FL100'};
+%targetStrains = {'YPS163','REF'};
 
 %Load all target strain names
 load('target_all_strains_blast')
@@ -36,9 +36,9 @@ for itarget = 1:length(targetStrains)
     
 end
 
-%save('allBlastResults','allBlastResults')
+save('allBlastResults','allBlastResults')
 
 %Rank hits based on the E-value. Length of identities.
-allBlastResults_sorted =sort_hits(allBlastResults);
+[allBlastResults_sorted,bestScore_counts] =sort_hits(allBlastResults);
 
 end

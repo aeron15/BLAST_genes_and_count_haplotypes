@@ -35,13 +35,13 @@ queryGenes = {'S288C_YDR009W_GAL3_flanking'};
 %% Identify SNPS for all genes
 driver_SNP_finder(queryGenes,path_data)
 
-%% Plot different haplotypes for natural isolates
+%% Plot different haplotypes for natural isolates of figure 1
 load('../outputFigures/data_output_figure_1.mat');
 filename='naturalIsolates_haplotypes_';
 
 driver_plot_haplotypes(queryGenes,data_output,filename);
 
-%% Plot different haplotypes for allele swaps
+%% Plot different haplotypes for allele swaps of figure 4
 load('../outputFigures/data_output_figure_4.mat');
 data_output=convert_data_output(data_output);
 filename='alleleSwaps_haplotypes_';
@@ -56,6 +56,7 @@ compute_SNP_number_haplotype_count(queryGenes)
 load('../output_bioinformatics/log_results_bioinformatics.mat');
 cell2csv('../output_bioinformatics/log_results_bioinformatics.csv',log_results);
 
-
+%% BLAST sequencing results to cerevisiae genome. To confirm plasmid identity but in general BLAST against all the cerevisiae strains.
+%determine_match_sequences_plasmids()
 
 

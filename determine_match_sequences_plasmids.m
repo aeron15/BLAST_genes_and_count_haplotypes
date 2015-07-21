@@ -1,8 +1,9 @@
 function determine_match_sequences_plasmids()
-%function determine_match_sequences_plasmids(path_data)
+%DETERMINE_MATCH_SEQUENCES_PLASMIDS extract all the sequence from a folder
+%and BLAST against all cerevisiae genomes. Export results of LAST when
+%sorted
 
-%extract all the sequence from a folder. These are sequences that came from
-%a plasmid sequencing. Return a list of hits that are good
+tic
 
 %PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning/20150626_GAL3_plasmids/10-301507723_seq/';
 PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning/20150626_GAL3_plasmids/data/';
@@ -10,25 +11,27 @@ PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning
 %Path to the data and BLAST location
 path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
 
-specificPlasmid='RB55';
+specificPlasmid='RYC59';%* blasts every sequence in the folder
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 
 for iFile=1:length(files_to_blast)
     
-    allBlastResults_sorted = blast_sequence(files_to_blast{iFile},path_data,PlasmidData_path);
+    %Remove extension of blasted files
+    outputFile_name=remove_extension(files_to_blast{iFile});
     
-    hitScore =cell2mat(allBlastResults_sorted (:,3));
+    try% blasting
     
-    %Hits that are equally good
-    sum(hitScore == max(hitScore))
+    [allBlastResults_sorted,bestScore_counts] = blast_sequence(files_to_blast{iFile},path_data,PlasmidData_path);     
+    save(['../output_bioinformatics/BLAST_'  outputFile_name], 'allBlastResults_sorted','bestScore_counts');%previously BLASTA
     
-    outputFile_name=files_to_blast{iFile};
-    outputFile_name=regexprep(outputFile_name,'.seq','');
-    outputFile_name=regexprep(outputFile_name,'.fasta','');
+    catch% catch blast not working
+        display (['BLAST failed with ' outputFile_name]);
+        
+    end
     
-    save(['../output_bioinformatics/BLASTA_'  outputFile_name], 'allBlastResults_sorted');
-    
-  end
+end
+
+toc
 
 end
