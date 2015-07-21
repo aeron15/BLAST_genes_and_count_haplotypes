@@ -28,7 +28,7 @@ blastResultCounter = 1;
 %Sort data based on the parameter.
 for k=1:length(idx)
     
-    BestHit=allBlastResults{idx(k)}
+    BestHit=allBlastResults{idx(k)};
     
     if ~ isempty(fieldnames(BestHit))
         allBlastResults_sorted(blastResultCounter).strain = BestHit.strain;

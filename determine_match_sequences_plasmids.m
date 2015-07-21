@@ -1,6 +1,6 @@
 function determine_match_sequences_plasmids()
 %DETERMINE_MATCH_SEQUENCES_PLASMIDS extract all the sequence from a folder
-%and BLAST against all cerevisiae genomes. Export results of LAST when
+%and BLAST against all cerevisiae genomes. Export results of BLAST when
 %sorted
 
 tic
@@ -11,7 +11,7 @@ PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning
 %Path to the data and BLAST location
 path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
 
-specificPlasmid='RYC59';%* blasts every sequence in the folder
+specificPlasmid='*';%* blasts every sequence in the folder
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 

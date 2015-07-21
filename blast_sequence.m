@@ -36,7 +36,7 @@ for itarget = 1:length(targetStrains)
     
 end
 
-save('allBlastResults','allBlastResults')
+%save('allBlastResults','allBlastResults')
 
 %Rank hits based on the E-value. Length of identities.
 [allBlastResults_sorted,bestScore_counts] =sort_hits(allBlastResults);
