@@ -1,6 +1,6 @@
 function [names_genomes,sequences_cells,sequences_liti]=extract_Liti(queryGene,path_data)
 
-% EXTRACT_LITI extracts the first cerevisiae strains (39)
+% EXTRACT_LITI extracts the first cerevisiae strains sequences from the Liti collection (39)
 
 tmp = fastaread([path_data 'data/query_genes/' queryGene '.fsa.txt']);
 
