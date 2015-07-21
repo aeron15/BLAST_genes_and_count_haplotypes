@@ -16,17 +16,12 @@ files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specif
 
 for iFile=1:length(files_to_blast)
     
-    allBlastResults_sorted = blast_sequence(files_to_blast{iFile},path_data,PlasmidData_path);
-    
-    hitScore =cell2mat(allBlastResults_sorted (:,3));
-    
-    %Hits that are equally good
-    sum(hitScore == max(hitScore))
-    
+    [allBlastResults_sorted,bestScore_counts] = blast_sequence(files_to_blast{iFile},path_data,PlasmidData_path);
+
     %Remove extension of blasted files
     outputFile_name=remove_extension(files_to_blast{iFile});
      
-    save(['../output_bioinformatics/BLASTA_score_'  outputFile_name], 'allBlastResults_sorted');
+    save(['../output_bioinformatics/BLASTA_'  outputFile_name], 'allBlastResults_sorted');
     
   end
 

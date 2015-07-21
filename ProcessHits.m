@@ -43,6 +43,8 @@ for ichr = 1:length(blastResult.Hits)
             identities = HSPs(ihsp).Identities.Match;
             mismatches =  HSPs(ihsp).Mismatches.Match;
             score = HSPs(ihsp).Score;
+            mistmatch = HSPs(ihsp).Mismatches.Match;
+            gaps = HSPs(ihsp).Gaps.Match;
             
             allhits(ihit).strain = targetStrains;
             allhits(ihit).start = start;
@@ -51,6 +53,8 @@ for ichr = 1:length(blastResult.Hits)
             allhits(ihit).identities = identities;
             allhits(ihit).mismatches = mismatches;
             allhits(ihit).score = score;
+            allhits(ihit). mistmatch =  mistmatch;
+            allhits(ihit).gaps = gaps;
             
             % extract sequence from subject genome, including flanking
             % regions
