@@ -17,28 +17,30 @@ for iHit=1:length(allBlastResults)
     
 end
 
-parameter_vector=double(parameter_vector);
-
 %Sort parameter
 [hitScore,idx]=sort(parameter_vector,'descend');
-
 
 %Hits that are equally good
 bestScore_counts = sum(hitScore == max(hitScore));
 
+blastResultCounter = 1;
 
 %Sort data based on the parameter.
 for k=1:length(idx)
     
-    BestHit=allBlastResults{idx(k)};
+    BestHit=allBlastResults{idx(k)}
     
     if ~ isempty(fieldnames(BestHit))
-        allBlastResults_sorted(k).strain = BestHit.strain;
-        allBlastResults_sorted(k).subject = BestHit.chromosome;
-        allBlastResults_sorted(k).identity = BestHit.identities;%Aligned length
-        allBlastResults_sorted(k).eValue = BestHit.expect;
-        allBlastResults_sorted(k).score = BestHit.score;
+        allBlastResults_sorted(blastResultCounter).strain = BestHit.strain;
+        allBlastResults_sorted(blastResultCounter).subject = BestHit.chromosome;
+        allBlastResults_sorted(blastResultCounter).identity = BestHit.identities;%Aligned length
+        allBlastResults_sorted(blastResultCounter).eValue = BestHit.expect;
+        allBlastResults_sorted(blastResultCounter).score = BestHit.score;
+        
+        blastResultCounter = blastResultCounter+1;
+        
     end
+    
 end
 
 
