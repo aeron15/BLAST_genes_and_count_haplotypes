@@ -1,6 +1,7 @@
 function determine_match_sequences_plasmids()
 %DETERMINE_MATCH_SEQUENCES_PLASMIDS extract all the sequence from a folder
-%and BLAST against all cerevisiae genomes
+%and BLAST against all cerevisiae genomes. Export results of LAST when
+%sorted
 
 tic
 

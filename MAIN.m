@@ -56,6 +56,7 @@ compute_SNP_number_haplotype_count(queryGenes)
 load('../output_bioinformatics/log_results_bioinformatics.mat');
 cell2csv('../output_bioinformatics/log_results_bioinformatics.csv',log_results);
 
-
+%% BLAST sequencing results to cerevisiae genome. To confirm plasmid identity but in general BLAST against all the cerevisiae strains.
+%determine_match_sequences_plasmids()
 
 
