@@ -2,7 +2,7 @@ function [names_genomes,sequences_cells,sequences_liti]=extractSequences_Liti(qu
 
 % EXTRACT_LITI extracts the first cerevisiae strains sequences from the Liti collection (39)
 
-tmp = fastaread([path_data 'data/query_genes/' queryGene '.fsa.txt']);
+tmpFASTA = fastaread([path_data 'data/query_genes/' queryGene '.fsa.txt']);%query gene sequence
 
 conversion_table=csv2cell(['Gene_FileNames_StandardNames_Lenght_conversion.csv']);
 
@@ -12,7 +12,7 @@ idx=find(strcmp(queryGene,query_genes_names));
 
 sequences_liti=fastaread([path_data 'sequences/' conversion_table{idx,2}]);
 
-seq_query=tmp.Sequence;
+seq_query=tmpFASTA.Sequence;
 
 startORF=1001;
 
