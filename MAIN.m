@@ -30,7 +30,7 @@ queryGenes = {'S288C_YDR009W_GAL3_flanking'};
 
 %% Collect sequences of the strains and generate SNP count for the strains
 
-% run_BLAST(queryGenes,path_data)
+run_BLAST(queryGenes,path_data)
 % 
 %% Identify SNPS for all genes
 driver_SNP_finder(queryGenes,path_data)

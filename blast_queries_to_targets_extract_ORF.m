@@ -43,13 +43,13 @@ for iquery = 1:length(queryGenes)
         
     end
     
-    %% Create table for Liti strains
-    [names_genomes_Liti,sequences_cells_Liti,sequences_liti]=extract_Liti(queryGenes{iquery},path_data);
+    %% Create table for Liti strains. Sequences_cells_Liti is used for the haplotype generation and sequences_liti for fasta export
+    [names_genomes_Liti,sequences_cells_Liti,sequences_liti]=extractSequences_Liti(queryGenes{iquery},path_data);
     
     %% Export fasta files. sequences_liti (below) and QueryStrains_fasta can be combined to export a fasta file
     FASTA_filename=['../output_bioinformatics/' queryGenes{iquery} '.fasta'];
-    fastawrite(FASTA_filename, QueryStrains_fasta);
-    fastawrite(FASTA_filename, sequences_liti);
+    %fastawrite(FASTA_filename, QueryStrains_fasta);
+    %fastawrite(FASTA_filename, sequences_liti);
     
     %% Combine BLASTED sequences and extracted sequences from the genome of Liti strains
     [sequence_table,All_names]=combine_sequences_names(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti);
