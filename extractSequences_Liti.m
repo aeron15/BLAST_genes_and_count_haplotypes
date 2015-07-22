@@ -1,4 +1,4 @@
-function [names_genomes,sequences_cells,sequences_liti]=extract_Liti(queryGene,path_data)
+function [names_genomes,sequences_cells,sequences_liti]=extractSequences_Liti(queryGene,path_data)
 
 % EXTRACT_LITI extracts the first cerevisiae strains sequences from the Liti collection (39)
 
@@ -16,7 +16,7 @@ seq_query=tmp.Sequence;
 
 startORF=1001;
 
-%% Restrict 'sequences_liti' to specific strains in the study
+%% Restrict 'sequences_liti' to specific strains in the study. 24 strains.
 sequences_liti=reduce_sequences_liti(sequences_liti);
 
 for iSeq=1:length(sequences_liti)
