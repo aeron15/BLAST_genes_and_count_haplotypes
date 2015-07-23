@@ -1,6 +1,4 @@
 function identfy_SNPs(sequence_table,All_names,queryGene,path_output_bionformatics)
-%function [tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(names_genomes,sequences_cells,names_genomes_Liti,sequences_cells_Liti,queryGene,path_output_bionformatics)
-
 %COMPARE_SEQUENCES_LITI  creates table for SNP counting
 % Load output_bionformatics and concatenate arrays for SNP count. Center all sequences
 % around 1001 (start site)
