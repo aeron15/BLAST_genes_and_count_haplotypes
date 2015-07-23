@@ -17,7 +17,8 @@ if ~exist('../output_bioinformatics')
     mkdir('../output_bioinformatics');
 end
 
-path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
+%path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
+path_data='../data_bioinformatics/';
 
 %% Query genes
 close all;
