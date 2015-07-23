@@ -18,7 +18,7 @@ for iChromosome=1:16
     
     y=tmp.data(:,3);
     
-    h=plot(x+offset_for_new_chromosome,y,'linewidth',2)
+    h=plot(x+offset_for_new_chromosome,y,'linewidth',2);
     all_LOD=vertcat(all_LOD,y);
     
     offset_for_new_chromosome=offset_for_new_chromosome+x(end);
@@ -32,7 +32,7 @@ ylim([-1 40])
 ylabel('LOD score')
 xlabel('Position chromosome')
 
-Set_fig_RE(hfig,9,9,14)
+Set_fig_RE(hfig,9,9,14);
 
 filename='Figure LOD score';
 export_fig_specific_path(filename, '-pdf','-transparent','-nocrop');
