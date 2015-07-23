@@ -21,10 +21,10 @@ path_data='../data_bioinformatics/';
 
 %% Query genes
 close all;
-queryGenes = {'S288C_YDR009W_GAL3_flanking'};
+%queryGenes = {'S288C_YDR009W_GAL3_flanking'};
 % queryGenes = {'S288C_YBR020W_GAL1_flanking','S288C_YML051W_GAL80_flanking'};
-% queryGenes = {'S288C_YDR009W_GAL3_flanking','S288C_YBR020W_GAL1_flanking','S288C_YBR018C_GAL7_flanking',...
-%    'S288C_YMR105C_PGM2_flanking','S288C_YPL248C_GAL4_flanking','S288C_YBR019C_GAL10_flanking','S288C_YML051W_GAL80_flanking'};
+queryGenes = {'S288C_YDR009W_GAL3_flanking','S288C_YBR020W_GAL1_flanking','S288C_YBR018C_GAL7_flanking',...
+   'S288C_YMR105C_PGM2_flanking','S288C_YPL248C_GAL4_flanking','S288C_YBR019C_GAL10_flanking','S288C_YML051W_GAL80_flanking'};
 
 
 %% Collect sequences of the strains and generate SNP count for the strains
