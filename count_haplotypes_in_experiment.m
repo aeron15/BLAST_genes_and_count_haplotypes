@@ -9,9 +9,9 @@ function [HaplotypeCount, Number_SNPs]=count_haplotypes_in_experiment(strains,ge
 % combined)
 
 if get_orf_promoter
-    load(['../data/DNA_DATA_PROMOTER_ORF' QueryGene '.mat'])
+    load(['../output_bioinformatics/DNA_PROMOTER_ORF' QueryGene '.mat'])
 else
-    load(['../data/DNA_DATA_ONLY_ORF' QueryGene '.mat'])
+    load(['../output_bioinformatics/DNA_ONLY_ORF' QueryGene '.mat'])
 end
 
 %% Sort the haplotypes based on number of strains in the haplotype
