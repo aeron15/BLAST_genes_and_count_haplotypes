@@ -46,7 +46,7 @@ for iquery = 1:length(queryGenes)
     %% Create table for Liti strains. databaseStrains_sequences_cells is used for the haplotype generation and sequences_liti for fasta export
     [databaseStrains_names,databaseStrains_sequences_cells,sequences_liti]=extractSequences_Liti(queryGenes{iquery},path_data);
     
-    %Extract Skelly
+    %Extract Skelly sequences and add it to analysis
     %[databaseStrains_names,databaseStrains_sequences_cells,sequences_skelly] = extractSequences_Skelly(queryGenes{iquery},path_data);
     
     %% Export fasta files. sequences_liti (below) and QueryStrains_fasta can be combined to export a fasta file

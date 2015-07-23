@@ -11,7 +11,7 @@ PlasmidData_path='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_cloning
 %Path to the data and BLAST location
 path_data='/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20141115_BLAST/';
 
-specificPlasmid='*';%* blasts every sequence in the folder
+specificPlasmid='RB63';%* blasts every sequence in the folder
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 

@@ -3,6 +3,7 @@ function [queryStrain_names,sequences_cells,sequences_skelly] = extractSequences
 %genome sequences.
 % Skelly sequences are +- 1kb of the ORF
 % Creates a fasta file
+% Create folders for other sequences GAL80, other genes
 
 pathData = '../data_bioinformatics/sequences_GAL3_Skelly/';
 
