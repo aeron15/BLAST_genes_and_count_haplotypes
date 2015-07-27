@@ -5,7 +5,7 @@ function [queryStrain_names,sequences_cells,sequences_skelly_reduced] = extractS
 % Creates a fasta file
 % Create folders for other sequences GAL80, other genes
 
-pathData = '../data_bioinformatics/sequences_GAL3_Skelly/';
+pathData = edit_pathData(queryGene);
 
 allFiles = dir([pathData '*.out']);
 
