@@ -42,11 +42,8 @@ for iquery = 1:length(queryGenes)
         QueryStrains_fasta(itarget).Sequence=consensus_sequence_string;
         
     end
-    
-    %% Create table for Liti strains. databaseStrains_sequences_cells is used for the haplotype generation and sequences_liti for fasta export
-    %[databaseStrains_names,databaseStrains_sequences_cells,databaseStrains_sequencesFasta]=extractSequences_Liti(queryGenes{iquery},path_data);
-    
-    %Extract Skelly sequences and add it to analysis
+       
+    %% Extract Skelly sequences and add it to analysis for haplotype generation
     [databaseStrains_names,databaseStrains_sequences_cells,databaseStrains_sequencesFasta] = extractSequences_Skelly(queryGenes{iquery},path_data);
     
     %% Export fasta files. Export BLASTed sequences and sequences extracted from Skelly et al.
