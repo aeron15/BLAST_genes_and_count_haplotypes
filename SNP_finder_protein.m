@@ -33,7 +33,7 @@ for iCol=1:length(sequence_table)
             Strains_with_a_given_SNP{iBasePair}=indeces;
             %Strains_with_a_given_SNP{iBasePair}=find_strain(indeces,name_sequences);
             
-            %% Determine the base pair in YJM978 and use it as a reference (sequence 1)
+            %% Determine the base pair in REF and use it as a reference (sequence 1)
             
             Ref_Seq=Seq_REF{iCol};
             

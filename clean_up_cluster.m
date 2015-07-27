@@ -16,8 +16,15 @@ StrainsRemoved_set={'REF','273614N','378604X','DBVPG6044','Y55','NCYC110','PW5'}
 
 cluster_analyzed=setdiff(cluster_analyzed,StrainsRemoved_set);%Remove unwanted strains
 
-for iCounter=1:length(cluster_analyzed)
+for iCounter=1:length(cluster_analyzed)%cluster analyzed is the group of strains with the same haplotype
+    try
+        
     clean_cluster_analyzed{iCounter}=substitution_list{find(strcmp(substitution_list(:,2),cluster_analyzed{iCounter})),1};
+    
+    catch
+        
+       display('mmmm') 
+    end
 end
 
 if isempty(cluster_analyzed)
