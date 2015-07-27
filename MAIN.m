@@ -2,14 +2,8 @@ function MAIN
 
 %MAIN script determines the number of haplotypes and SNPs for genes across
 %strains in the paper
-% When Skelly seqiences were added 27 sequences were blasted and 15 strains
+% When Skelly sequences were added 27 sequences were blasted and 15 strains
 % were dowloaded from the Skelly genome sequences.http://www.yeastrc.org/g2p-data/raw-data/genomes/
-
-% For the haplotype count sequences for Liti strains (24 strains in targetStrains_Liti) derived from whole
-% genome sequencing and other sequences are blasted from the Fay collection
-% (18 strains in targetStrains_WashU).
-%
-% Python scripts determine coverage of sequencing
 
 %Create an output folder if it does not exist
 if ~exist('../outputFigures')
