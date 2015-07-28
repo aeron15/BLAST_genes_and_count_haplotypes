@@ -26,23 +26,23 @@ queryGenes = {'S288C_YDR009W_GAL3_flanking','S288C_YBR020W_GAL1_flanking','S288C
 
 
 %% Collect sequences of the strains and generate SNP count for the strains
-run_BLAST(queryGenes,path_data)
-
-%% Identify SNPS for all genes
-driver_SNP_finder(queryGenes,path_data)
-
-%% Plot different haplotypes for natural isolates of figure 1
-load('../outputFigures/data_output_figure_1.mat');
-filename='naturalIsolates_haplotypes_';
-
-driver_plot_haplotypes(queryGenes,data_output,filename);
-
-%% Plot different haplotypes for allele swaps of figure 4
-load('../outputFigures/data_output_figure_4.mat');
-data_output=convert_data_output(data_output);
-filename='alleleSwaps_haplotypes_';
-
-driver_plot_haplotypes(queryGenes,data_output,filename);
+% run_BLAST(queryGenes,path_data)
+% 
+% %% Identify SNPS for all genes
+% driver_SNP_finder(queryGenes,path_data)
+% 
+% %% Plot different haplotypes for natural isolates of figure 1
+% load('../outputFigures/data_output_figure_1.mat');
+% filename='naturalIsolates_haplotypes_';
+% 
+% driver_plot_haplotypes(queryGenes,data_output,filename);
+% 
+% %% Plot different haplotypes for allele swaps of figure 4
+% load('../outputFigures/data_output_figure_4.mat');
+% data_output=convert_data_output(data_output);
+% filename='alleleSwaps_haplotypes_';
+% 
+% driver_plot_haplotypes(queryGenes,data_output,filename);
 
 %% Compute the number of haplotypes in the experiment (VERIFY)
 compute_SNP_number_haplotype_count(queryGenes)

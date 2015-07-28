@@ -60,5 +60,5 @@ else %No halotypes with more than one strain were detected resulting in each str
     
 end
 
-
+display('end')
 

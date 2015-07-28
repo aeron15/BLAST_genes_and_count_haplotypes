@@ -19,13 +19,13 @@ for iQueryGene=1:length(queryGenes)
     
     %>>>>>LOG ENTRIES
     add_entry_log('>>>Number of natural isolates',length(strains));
-    add_entry_log(['Haplotypes natural isolates figure 1 using ORF for ' queryGenes{iQueryGene}],ORFStrain_hap);
+    add_entry_log(['Haplotypes natural isolates DNA figure 1 using ORF only for ' queryGenes{iQueryGene}],ORFStrain_hap);
     
     %Count haplotypes among natural isolates on figure 1 in the experiment with promoter and ORF only
     get_orf_promoter=1;
     [pORFStrain_hap,pORFStrain_SNP]=count_haplotypes_in_experiment(strains,get_orf_promoter,queryGene);
     
-    add_entry_log(['Haplotypes natural isolates using promoter and ORF ' queryGenes{iQueryGene}],pORFStrain_hap);
+    add_entry_log(['Haplotypes natural isolates DNA using promoter and ORF ' queryGenes{iQueryGene}],pORFStrain_hap);
     
     %Count haplotypes among natural isolates on figure 1. Using protein
     %sequence.
@@ -45,14 +45,14 @@ for iQueryGene=1:length(queryGenes)
     
     %>>>>>LOG ENTRIES
     add_entry_log('Number of allele swaps',length(strains));
-    add_entry_log(['Haplotypes for allele swaps using ORF ' queryGenes{iQueryGene}],ORFStrain_hap);
+    add_entry_log(['Haplotypes for allele swaps DNA using ORF only' queryGenes{iQueryGene}],ORFStrain_hap);
     
     %Count haplotypes among 36 strains in the experiment with ORF only
     get_orf_promoter=1;
     [pORFStrain_hap,pORFStrain_SNP]=count_haplotypes_in_experiment(strains,get_orf_promoter,queryGene);
     
     %>>>>>LOG ENTRIES
-    add_entry_log(['Haplotypes for allele swaps promoter and ORF ' queryGenes{iQueryGene}],pORFStrain_hap);
+    add_entry_log(['Haplotypes for allele swaps DNA promoter and ORF ' queryGenes{iQueryGene}],pORFStrain_hap);
     
 end
 
