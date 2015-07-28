@@ -19,7 +19,7 @@ print(bedtools_command)
 """
 
 allFiles=['273614N.fa','378604X.fa','BC187.fa','DBVPG1106.fa','DBVPG1373.fa','DBVPG6765.fa','K11.fa','L_1374.fa','NCYC361.fa','SK1.fa','UWOPS05_217_3.fa','UWOPS05_227_2.fa','UWOPS83_787_3.fa','UWOPS87_2421.fa','Y12.fa','Y55.fa','YJM975.fa','YJM978.fa','YJM981.fa','YPS128.fa','YPS606.fa','YS2.fa','YS9.fa']
-allGenes=['GAL3','GAL1','GAL2','GAL4','GAL80','GAL10','GAL7'];
+allGenes=['GAL3','GAL1','GAL2','GAL4','PGM2','GAL80','GAL10','GAL7'];
 path="/Users/RenanEscalante/Dropbox/Phenotypic_diversity/var_bioinfo/20150324_Skelly_Sequences/"
 
 for gene in allGenes:
