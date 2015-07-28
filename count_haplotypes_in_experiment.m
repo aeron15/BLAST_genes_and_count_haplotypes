@@ -43,8 +43,8 @@ for iCell=1:length(AllStrains_haplotypes)
             
         end
     end
+    
 end
-
 %% Number of haplotypes
 % The number of haplotypes is the number of strains minus the number of
 % strains that are part of haplotypes with more than one strain
@@ -60,5 +60,5 @@ else %No halotypes with more than one strain were detected resulting in each str
     
 end
 
-display('end')
+
 

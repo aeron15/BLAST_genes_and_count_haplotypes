@@ -1,5 +1,5 @@
 function blast_queries_to_targets_extract_ORF(queryGenes,targetStrains,path_data)
-% BLAST_QUERIES_TO_TARGETS_EXTRACT_ORF runs BLAST of multiple query genes to
+% BLAST_QUERIES_TO_TARGETS_EXTRACT_ORF runs BLAST of multiple query genes to 
 % multiple target ("subject") genomes.
 %
 % This script assumes that each target genome sequence has been formatted
@@ -42,24 +42,24 @@ for iquery = 1:length(queryGenes)
         QueryStrains_fasta(itarget).Sequence=consensus_sequence_string;
         
     end
-       
-    %% Extract Skelly sequences and add it to analysis for haplotype generation
-    [databaseStrains_names,databaseStrains_sequences_cells,databaseStrains_sequencesFasta] = extractSequences_Skelly(queryGenes{iquery},path_data);
     
-    %% Export fasta files. Export BLASTed sequences and sequences extracted from Skelly et al.
+    %% Create table for Liti strains. databaseStrains_sequences_cells is used for the haplotype generation and sequences_liti for fasta export
+    [databaseStrains_names,databaseStrains_sequences_cells,sequences_liti]=extractSequences_Liti(queryGenes{iquery},path_data);
+    
+    %Extract Skelly sequences and add it to analysis
+    %[databaseStrains_names,databaseStrains_sequences_cells,sequences_skelly] = extractSequences_Skelly(queryGenes{iquery},path_data);
+    
+    %% Export fasta files. sequences_liti (below) and QueryStrains_fasta can be combined to export a fasta file
     FASTA_filename=['../output_bioinformatics/' queryGenes{iquery} '.fasta'];
-    
-    if exist(FASTA_filename)        
-        command = ['rm ' FASTA_filename];
-        system(command);
-    end
-    
-    fastawrite(FASTA_filename, QueryStrains_fasta);
-    fastawrite(FASTA_filename, databaseStrains_sequencesFasta);
+    %fastawrite(FASTA_filename, QueryStrains_fasta);
+    %fastawrite(FASTA_filename, sequences_liti);
     
     %% Combine BLASTED sequences and extracted sequences from the genome of Liti strains
     [sequence_table,All_names]=combine_sequences_names(blastStrains_names,blastStrains_sequences_cells,databaseStrains_names,databaseStrains_sequences_cells);
     save(['../output_bioinformatics/sequences_' queryGenes{iquery}],'sequence_table','All_names');
+    
+    %% Identification of SNPs with respect to the reference strain S288C
+    %identfy_SNPs(sequence_table,All_names,queryGenes{iquery},path_data)
     
     %% Keep track of changes for McDonal-Kreitman test
     %[tot_changes,syn_changes,ns_changes]=compare_sequences_liti_BLAST(blastStrains_names,blastStrains_sequences_cells,databaseStrains_names,databaseStrains_sequences_cells,queryGenes{iquery},path_data);
