@@ -22,7 +22,7 @@ for iFile=1:length(files_to_blast)
     try% blasting
     
     [allBlastResults_sorted,bestScore_hits{iFile}] = blast_sequence(files_to_blast{iFile},path_data,PlasmidData_path);     
-    save(['../output_bioinformatics/BLAST_'  outputFile_name], 'allBlastResults_sorted','bestScore_counts');%previously BLASTA
+    save(['../output_bioinformatics/BLAST_'  outputFile_name], 'allBlastResults_sorted','bestScore_hits');
     
     catch% catch blast not working
         display (['BLAST failed with ' outputFile_name]);
