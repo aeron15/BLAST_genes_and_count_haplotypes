@@ -10,7 +10,7 @@ PlasmidData_path='../data_bioinformatics/data_plasmid/';
 %Path to the data and BLAST location
 path_data='../data_bioinformatics/';
 
-specificPlasmid='RB21';%'*' blasts every sequence in the folder
+specificPlasmid='RB66';%'*' blasts every sequence in the folder
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 
@@ -21,7 +21,7 @@ for iFile=1:length(files_to_blast)
     
     try% blasting
     
-    [allBlastResults_sorted,bestScore_counts] = blast_sequence(files_to_blast{iFile},path_data,PlasmidData_path);     
+    [allBlastResults_sorted,bestScore_hits{iFile}] = blast_sequence(files_to_blast{iFile},path_data,PlasmidData_path);     
     save(['../output_bioinformatics/BLAST_'  outputFile_name], 'allBlastResults_sorted','bestScore_counts');%previously BLASTA
     
     catch% catch blast not working
@@ -32,5 +32,9 @@ for iFile=1:length(files_to_blast)
 end
 
 toc
+
+%Determine common best hits across BLASTS. Use when there are several
+%plasmid sequences
+commonHits = determine_commonHits_across_BLASTs(bestScore_hits);
 
 end

@@ -4,8 +4,13 @@ function run_BLAST(queryGenes,path_data)
 
 %% Load specific target strains for BLAST
 
+<<<<<<< Updated upstream
 load('targetStrains_BLAST.mat')
 %targetStrains_BLAST={'REF'};%for testing purposes
+=======
+%load('targetStrains_BLAST.mat')
+targetStrains_BLAST={'YPS163'};%for testing purposes
+>>>>>>> Stashed changes
 
 blast_queries_to_targets_extract_ORF(queryGenes,targetStrains_BLAST,path_data);
 
