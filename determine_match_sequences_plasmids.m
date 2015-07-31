@@ -10,7 +10,7 @@ PlasmidData_path='../data_bioinformatics/data_plasmid/';
 %Path to the data and BLAST location
 path_data='../data_bioinformatics/';
 
-specificPlasmid='RB53';%'*' blasts every sequence in the folder
+specificPlasmid='*';%'*' blasts every sequence in the folder
 
 files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
 
