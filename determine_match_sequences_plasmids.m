@@ -19,8 +19,7 @@ for iPlasmid = 1:length(all_Plasmids)
     
     files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
     
-    blast_specific_plasmid(files_to_blast,path_data,PlasmidData_path);
-    
+    blast_specific_plasmid (files_to_blast,path_data,PlasmidData_path,specificPlasmid);
 %     for iFile=1:length(files_to_blast)
 %         
 %         %Remove extension of blasted files

@@ -1,4 +1,4 @@
-function blast_specific_plasmid (files_to_blast,path_data,PlasmidData_path)
+function blast_specific_plasmid (files_to_blast,path_data,PlasmidData_path,specificPlasmid)
 %BLAST_SPECIFC_PLASMID blasts the sequences of a specific plasmid and
 %creates the BLAST results strucutre with the best scores and common hits
 %across blasts
