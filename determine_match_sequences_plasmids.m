@@ -11,7 +11,7 @@ PlasmidData_path='../data_bioinformatics/data_plasmid/';
 path_data='../data_bioinformatics/';
 
 
-all_Plasmids = {'RB21','RB2_','RB3','RB41','RB45','RB47','RB53','RB66','RB49','RB54','RB55','RB58','RB60','RB67','RB63','RB50','RB64'};
+all_Plasmids = {'RB21','RB2_','RB3','RB41','RB45','RB53','RB49','RB54','RB55','RB58','RB60','RB63','RB50','RB64','RB67','RB47','RB66'};
 
 for iPlasmid = 1:length(all_Plasmids)
     
@@ -19,7 +19,7 @@ for iPlasmid = 1:length(all_Plasmids)
     
     files_to_blast=extract_files_to_blast(PlasmidData_path,'specificPlasmid', specificPlasmid);
     
-    blast_specific_plasmid(files_to_blast);
+    blast_specific_plasmid(files_to_blast,path_data,PlasmidData_path);
     
 %     for iFile=1:length(files_to_blast)
 %         
