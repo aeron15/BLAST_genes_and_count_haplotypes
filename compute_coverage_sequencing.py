@@ -33,7 +33,10 @@ for samFile in AlignmentFiles:
 	print command_sortBam
 	
 	#Execute coverage calculation with option d
-	commandComputeCoverage = "genomeCoverageBed -ibam " + samFile + "_sorted.bam -g yeast_chr/yeast_genome.fna -bga > Bedtools_coverage_" + samFile
+	commandComputeCoverage = "genomeCoverageBed -ibam " + samFile + "_sorted.bam -g yeast_chr/yeast_genome.fna -d > Coverage_" + samFile + "_option_d"
 	print commandComputeCoverage
 	
 	#Cut the column with the counts
+	command_cutCoverage = "cut -f 3 Coverage_" + samFile + "_option_d > cov_"+ samFile
+	print command_cutCoverage
+	 

@@ -1,3 +1,7 @@
+"""
+Computes mean of a file
+"""
+
 #open file
 with open('cov_r1A10', 'r') as f:
     #read lines, strip trailing newlines, and convert to float if not empty
