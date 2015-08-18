@@ -14,9 +14,9 @@ targetPath = [path_data 'data/target_genomes/']; % contains FASTA files of targe
 %Load all target strain names
 
 %Load all target strain names in the folder
-%load('target_all_strains_blast')
+load('target_all_strains_blast')
 
-targetStrains = {'YPS163'};% for testing purposes
+%targetStrains = {'YPS163'};% for testing purposes
 
 for itarget = 1:length(targetStrains)
     
