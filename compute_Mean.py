@@ -1,9 +1,10 @@
 """
-Computes mean of a file
+Computes arithmetic mean, standard deviation and the minimum of a file
+
 """
 
 #open file
-with open('cov_r1A10', 'r') as f:
+with open('testComputeMean', 'r') as f:
     #read lines, strip trailing newlines, and convert to float if not empty
     numbers = [float(x) for x in (x.strip() for x in f) if x]
 
