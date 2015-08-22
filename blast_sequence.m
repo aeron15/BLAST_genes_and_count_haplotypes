@@ -1,4 +1,4 @@
-function [allBlastResults_sorted,bestScore_counts] = blast_sequence(file_to_blast,path_data,PlasmidData_path)
+function [allBlastResults_sorted,bestScore_hits ] = blast_sequence(file_to_blast,path_data,PlasmidData_path)
 
 %BLAST sequence to the target Genome List
 %
@@ -15,6 +15,8 @@ targetPath = [path_data 'data/target_genomes/']; % contains FASTA files of targe
 
 %Load all target strain names in the folder
 load('target_all_strains_blast')
+
+%targetStrains = {'YPS163'};% for testing purposes
 
 for itarget = 1:length(targetStrains)
     
@@ -38,6 +40,6 @@ end
 %save('allBlastResults','allBlastResults')
 
 %Rank hits based on the E-value. Length of identities.
-[allBlastResults_sorted,bestScore_counts] =sort_hits(allBlastResults);
+[allBlastResults_sorted,bestScore_hits ] =sort_hits(allBlastResults);
 
 end

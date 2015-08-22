@@ -1,4 +1,7 @@
-function [allBlastResults_sorted, bestScore_counts]= sort_hits(allBlastResults)
+function [allBlastResults_sorted, bestScore_hits ]= sort_hits(allBlastResults)
+%function [allBlastResults_sorted, bestScore_counts]= sort_hits(allBlastResults)
+
+
 %SORT_HITS based on a parameter. The parameter used to sort hits is the
 %score of the blast hit
 
@@ -22,6 +25,14 @@ end
 
 %Hits that are equally good
 bestScore_counts = sum(hitScore == max(hitScore));
+bestHitIDX = find(parameter_vector == max(parameter_vector));
+
+for j=1:length(bestHitIDX)
+
+    bestScore_hits{j} = allBlastResults{bestHitIDX(j)}.strain;
+
+end
+bestScore_hits = bestScore_hits';
 
 blastResultCounter = 1;
 
